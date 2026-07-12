@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>ProStudio Áudio · Spots, Vinhetas & Chamadas</title>
+  <title>ProStudio Áudio · Soluções em Áudio</title>
   <!-- Font Awesome (ícones) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -20,23 +20,22 @@
       line-height: 1.5;
     }
 
-    /* container principal */
     .container {
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* ===== HEADER / NAV ===== */
+    /* ===== HEADER ===== */
     header {
       background: #12161e;
       border-bottom: 1px solid #2a2f3a;
-      padding: 16px 0;
+      padding: 12px 0;
       position: sticky;
       top: 0;
       z-index: 100;
       backdrop-filter: blur(6px);
-      background: rgba(18, 22, 30, 0.92);
+      background: rgba(18, 22, 30, 0.94);
     }
 
     .header-inner {
@@ -44,31 +43,24 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 12px;
     }
 
     .logo-area {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
     }
 
-    .logo-icon {
-      font-size: 2rem;
-      color: #e34f2b;
-      background: #1e232e;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(227, 79, 43, 0.2);
+    .logo-area img {
+      height: 52px;
+      width: auto;
+      filter: drop-shadow(0 0 6px rgba(227, 79, 43, 0.2));
     }
 
     .logo-text {
       font-weight: 700;
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       letter-spacing: -0.5px;
       background: linear-gradient(135deg, #f5b041, #e34f2b);
       -webkit-background-clip: text;
@@ -82,7 +74,6 @@
       background: none;
     }
 
-    /* menu hamburger (três barras) */
     .nav-toggle {
       display: none;
       font-size: 2rem;
@@ -92,7 +83,6 @@
       border: none;
       padding: 4px 8px;
       border-radius: 8px;
-      transition: background 0.2s;
     }
 
     .nav-toggle:hover {
@@ -140,9 +130,29 @@
       border-bottom: none;
     }
 
-    /* ===== HERO SLIDER (imagens passando) ===== */
+    .nav-menu .whatsapp-nav {
+      background: #25D366;
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 30px;
+      border-bottom: none;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-menu .whatsapp-nav:hover {
+      background: #1fae5a;
+      transform: scale(1.03);
+      border-bottom: none;
+    }
+
+    /* ===== HERO SLIDER ===== */
     .hero-slider {
-      margin: 32px 0 40px;
+      margin: 28px 0 36px;
       border-radius: 24px;
       overflow: hidden;
       background: #1a1f29;
@@ -210,9 +220,9 @@
       100% { transform: translateX(0); }
     }
 
-    /* ===== DESTAQUES (também com animação de imagens) ===== */
+    /* ===== DESTAQUES ===== */
     .destaques {
-      margin: 48px 0 32px;
+      margin: 40px 0 32px;
     }
 
     .destaques h2 {
@@ -255,23 +265,28 @@
       background-size: cover;
       background-position: center;
       background-color: #262e3f;
-      background-image: repeating-linear-gradient(45deg, #2f384b 0px, #2f384b 3px, #3b445a 3px, #3b445a 8px);
-      animation: destaqueSlide 12s infinite alternate ease-in-out;
       display: flex;
       align-items: flex-end;
       padding: 12px;
+      justify-content: center;
+      font-size: 4rem;
+      color: rgba(255,255,255,0.1);
     }
 
-    /* animação de imagem nos destaques (placeholder) */
-    @keyframes destaqueSlide {
-      0% { background-position: 0% 30%; background-color: #2b3345; }
-      50% { background-position: 100% 70%; background-color: #1f2739; }
-      100% { background-position: 0% 40%; background-color: #2c3549; }
+    .destaque-img .icon-overlay {
+      font-size: 4.2rem;
+      color: rgba(227, 79, 43, 0.7);
+      text-shadow: 0 0 30px rgba(227, 79, 43, 0.2);
+      background: rgba(0,0,0,0.3);
+      padding: 12px 20px;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
     }
 
-    .destaque-card:nth-child(2) .destaque-img { animation-delay: -2s; }
-    .destaque-card:nth-child(3) .destaque-img { animation-delay: -4s; }
-    .destaque-card:nth-child(4) .destaque-img { animation-delay: -6s; }
+    .destaque-card:nth-child(1) .destaque-img { background: #1a212f; }
+    .destaque-card:nth-child(2) .destaque-img { background: #1f2738; }
+    .destaque-card:nth-child(3) .destaque-img { background: #17202e; }
+    .destaque-card:nth-child(4) .destaque-img { background: #1e2636; }
 
     .destaque-tag {
       background: rgba(0,0,0,0.7);
@@ -282,6 +297,13 @@
       font-weight: 600;
       color: #f0b38c;
       border-left: 3px solid #e34f2b;
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+    }
+
+    .destaque-img {
+      position: relative;
     }
 
     .destaque-info {
@@ -300,29 +322,18 @@
       margin-bottom: 14px;
     }
 
-    .btn-whatsapp-small {
-      background: #25D366;
-      color: #fff;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      transition: 0.2s;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    .audio-player {
+      width: 100%;
+      margin-top: 6px;
+      border-radius: 30px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
     }
 
-    .btn-whatsapp-small:hover {
-      background: #1fae5a;
-      transform: scale(1.02);
+    .audio-player::-webkit-media-controls-panel {
+      background: #1f273a;
     }
 
-    /* ===== SEÇÃO CATEGORIAS (Spots, Chamadas, Vinhetas) ===== */
+    /* ===== CATEGORIAS ===== */
     .categorias {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -364,7 +375,56 @@
       margin-top: 6px;
     }
 
-    /* ===== BOTÃO WHATSAPP FIXO ===== */
+    /* ===== SOBRE / RODAPÉ ===== */
+    .about-section {
+      background: #121822;
+      border-radius: 24px;
+      padding: 36px 32px;
+      margin: 40px 0 30px;
+      border-left: 6px solid #e34f2b;
+    }
+
+    .about-section h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+      color: #f0b38c;
+    }
+
+    .about-section h2 i {
+      color: #e34f2b;
+      margin-right: 12px;
+    }
+
+    .about-section p {
+      color: #c8d0e0;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 900px;
+    }
+
+    .about-section .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 20px 0 10px;
+      list-style: none;
+    }
+
+    .about-section .services-list li {
+      color: #d5dcee;
+      padding: 6px 0;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .about-section .services-list li i {
+      color: #e34f2b;
+      width: 24px;
+    }
+
     .whatsapp-float {
       position: fixed;
       bottom: 28px;
@@ -390,9 +450,8 @@
       background: #1fae5a;
     }
 
-    /* ===== FOOTER ===== */
     footer {
-      margin-top: 60px;
+      margin-top: 40px;
       padding: 30px 0 20px;
       border-top: 1px solid #212734;
       color: #7f889c;
@@ -441,7 +500,8 @@
         padding: 8px 0;
       }
 
-      .nav-menu .contato-btn {
+      .nav-menu .contato-btn,
+      .nav-menu .whatsapp-nav {
         width: fit-content;
         margin: 0 auto;
       }
@@ -470,11 +530,15 @@
       }
 
       .logo-text {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
 
       .hero-slider {
         height: 200px;
+      }
+
+      .about-section {
+        padding: 24px 18px;
       }
     }
   </style>
@@ -483,27 +547,27 @@
   <header>
     <div class="container header-inner">
       <div class="logo-area">
-        <div class="logo-icon"><i class="fas fa-microphone-alt"></i></div>
+        <!-- Logo imagem (logo1.img) -->
+        <img src="logo1.img" alt="ProStudio Áudio" onerror="this.style.display='none'">
         <div class="logo-text">ProStudio <span>Áudio</span></div>
       </div>
 
-      <!-- Botão hamburger (três barrinhas) -->
       <button class="nav-toggle" id="navToggle" aria-label="Menu">
         <i class="fas fa-bars"></i>
       </button>
 
-      <!-- Menu com apenas: Spots, Chamadas, Vinhetas, Contatos -->
       <ul class="nav-menu" id="navMenu">
         <li><a href="#" class="active"><i class="fas fa-bullhorn"></i> Spots</a></li>
-        <li><a href="#"><i class="fas fa-phone-volume"></i> Chamadas</a></li>
+        <li><a href="#"><i class="fas fa-play-circle"></i> Chamadas</a></li>
         <li><a href="#"><i class="fas fa-music"></i> Vinhetas</a></li>
         <li><a href="#" class="contato-btn"><i class="fas fa-envelope"></i> Contatos</a></li>
+        <li><a href="https://wa.me/5588999559412?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20spots,%20vinhetas%20e%20chamadas." class="whatsapp-nav" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
       </ul>
     </div>
   </header>
 
   <main class="container">
-    <!-- SLIDER HERO com animação de imagens passando -->
+    <!-- SLIDER HERO -->
     <section class="hero-slider">
       <div class="slider-track">
         <div class="slide"><div class="slide-content"><i class="fas fa-wave-square"></i> Spots • Criatividade</div></div>
@@ -513,71 +577,99 @@
       </div>
     </section>
 
-    <!-- DESTAQUES com animação de imagem (placeholder) -->
+    <!-- DESTAQUES com ícones + players de áudio -->
     <section class="destaques">
       <h2><i class="fas fa-star"></i> Destaques</h2>
       <div class="destaque-grid">
+        <!-- Spot -->
         <div class="destaque-card">
-          <div class="destaque-img"><span class="destaque-tag"><i class="fas fa-bolt"></i> Spot</span></div>
+          <div class="destaque-img">
+            <span class="icon-overlay"><i class="fas fa-user-tie"></i></span>
+            <span class="destaque-tag"><i class="fas fa-bolt"></i> Spot</span>
+          </div>
           <div class="destaque-info">
-            <h3>Spot Impacto</h3>
-            <p>Para rádios e podcasts, com energia e conversão.</p>
-            <a href="#" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> 88 99955-9412</a>
+            <h3>Spot Comercial</h3>
+            <p>Produção profissional para rádio e mídias.</p>
+            <audio controls class="audio-player" src="Spot - Caixa.mp3.mpeg"></audio>
           </div>
         </div>
+        <!-- Vinheta -->
         <div class="destaque-card">
-          <div class="destaque-img"><span class="destaque-tag"><i class="fas fa-waveform"></i> Vinheta</span></div>
+          <div class="destaque-img">
+            <span class="icon-overlay"><i class="fas fa-headphones"></i></span>
+            <span class="destaque-tag"><i class="fas fa-waveform"></i> Vinheta</span>
+          </div>
           <div class="destaque-info">
-            <h3>Vinheta Conexão</h3>
-            <p>Assinatura moderna para programas e intervalos.</p>
-            <a href="#" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> 88 99955-9412</a>
+            <h3>Vinheta Rádio</h3>
+            <p>Identidade sonora para emissoras e podcasts.</p>
+            <audio controls class="audio-player" src="VH - Rádio Web Mundaú .mp3.mpeg"></audio>
           </div>
         </div>
+        <!-- Chamada -->
         <div class="destaque-card">
-          <div class="destaque-img"><span class="destaque-tag"><i class="fas fa-bullhorn"></i> Chamada</span></div>
+          <div class="destaque-img">
+            <span class="icon-overlay"><i class="fas fa-microphone-alt"></i></span>
+            <span class="destaque-tag"><i class="fas fa-bullhorn"></i> Chamada</span>
+          </div>
           <div class="destaque-info">
-            <h3>Chamada Top</h3>
-            <p>Chamadas dinâmicas para engajar a audiência.</p>
-            <a href="#" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> 88 99955-9412</a>
+            <h3>Chamada para Eventos</h3>
+            <p>Chamadas dinâmicas para shows e festas.</p>
+            <audio controls class="audio-player" src="Chamada - PRA CIMA TATY GIRL .mp3.mpeg"></audio>
           </div>
         </div>
+        <!-- Chamada Shows Religiosos -->
         <div class="destaque-card">
-          <div class="destaque-img"><span class="destaque-tag"><i class="fas fa-fire"></i> Exclusivo</span></div>
+          <div class="destaque-img">
+            <span class="icon-overlay"><i class="fas fa-hands-praying"></i></span>
+            <span class="destaque-tag"><i class="fas fa-fire"></i> Chamada</span>
+          </div>
           <div class="destaque-info">
-            <h3>Pacote Inverno</h3>
-            <p>Vinhetas, chamadas e spots com clima único.</p>
-            <a href="#" class="btn-whatsapp-small"><i class="fab fa-whatsapp"></i> 88 99955-9412</a>
+            <h3>Chamadas Shows Religiosos</h3>
+            <p>Comunicação com emoção e credibilidade.</p>
+            <audio controls class="audio-player" src="Chamada - RILDO FREITAS 20 ANOS (ITAPIPOCA).mp3.mpeg"></audio>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CATEGORIAS PRINCIPAIS: Spots, Chamadas, Vinhetas -->
+    <!-- CATEGORIAS: Spots, Chamadas (com ícone play), Vinhetas -->
     <div class="categorias">
       <div class="categoria-card">
         <i class="fas fa-microphone-alt"></i>
         <h3>Spots</h3>
-        <p>Criação e produção de spots publicitários</p>
+        <p>Gravação de spots publicitários</p>
       </div>
       <div class="categoria-card">
-        <i class="fas fa-phone-alt"></i>
+        <i class="fas fa-play-circle"></i>
         <h3>Chamadas</h3>
-        <p>Chamadas para programas, eventos e promoções</p>
+        <p>Chamadas de Shows e Eventos</p>
       </div>
       <div class="categoria-card">
         <i class="fas fa-headphones"></i>
         <h3>Vinhetas</h3>
-        <p>Vinhetas personalizadas e pacotes temáticos</p>
+        <p>Vinhetas personalizadas e pacotes</p>
       </div>
     </div>
 
-    <!-- copy inspirada no site Dario Produções (texto institucional) -->
-    <div style="background: #121822; padding: 28px 24px; border-radius: 24px; border-left: 6px solid #e34f2b; margin: 24px 0 12px;">
-      <p style="font-size: 1.1rem; color: #ccd4e3; max-width: 900px;">
-        <i class="fas fa-quote-left" style="color: #e34f2b; margin-right: 12px;"></i>
-        Com mais de 15 anos de experiência, a ProStudio Áudio entrega spots, vinhetas e chamadas com qualidade profissional.
-        Nosso time cria peças sonoras que conectam marcas e rádios ao seu público. 
-        <strong style="color: #f0b38c;">Solicite seu orçamento!</strong>
+    <!-- SOBRE / RODAPÉ INSTITUCIONAL -->
+    <div class="about-section">
+      <h2><i class="fas fa-circle-info"></i> Pro Studio Áudio – Soluções em Áudio Há 25 Anos</h2>
+      <p>
+        Na Pro Studio Áudio, qualidade, criatividade e profissionalismo fazem parte de cada produção. Somos especialistas em criar conteúdos sonoros que fortalecem marcas, promovem produtos, divulgam eventos e comunicam sua mensagem com impacto, emoção e credibilidade.<br><br>
+        Atendemos empresas, agências de publicidade, emissoras de rádio, produtores e organizadores de eventos, oferecendo soluções personalizadas com agilidade, atenção aos detalhes e alto padrão de qualidade.
+      </p>
+      <ul class="services-list">
+        <li><i class="fas fa-microphone"></i> Gravação de spots publicitários.</li>
+        <li><i class="fas fa-headphones"></i> Produção de vinhetas para rádios, empresas, DJs, podcasts e redes sociais.</li>
+        <li><i class="fas fa-calendar-check"></i> Chamadas para shows, festas e eventos, desenvolvidas para atrair a atenção do público e valorizar sua divulgação.</li>
+        <li><i class="fas fa-sliders-h"></i> Edição, tratamento e finalização de áudio, garantindo um som limpo, moderno e com qualidade profissional.</li>
+      </ul>
+      <p style="margin-top: 16px;">
+        <strong style="color: #f0b38c;">Pro Studio Áudio – Soluções em Áudio Há 25 Anos.</strong><br>
+        Entre em contato e descubra como podemos transformar sua ideia em uma produção de áudio profissional.
+      </p>
+      <p style="margin-top: 12px; color: #aab4cc;">
+        <i class="fas fa-envelope" style="color: #e34f2b;"></i> prostudioaudio10@gmail.com
       </p>
     </div>
   </main>
@@ -589,23 +681,21 @@
   </a>
 
   <footer class="container">
-    <div>© 2026 ProStudio Áudio · Todos os direitos reservados</div>
+    <div>© 2026 ProStudio Áudio · Soluções em Áudio</div>
     <div class="footer-links">
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-youtube"></i></a>
-      <a href="#"><i class="fas fa-envelope"></i></a>
+      <a href="mailto:prostudioaudio10@gmail.com"><i class="fas fa-envelope"></i></a>
       <span style="margin-left: 12px; color: #e34f2b;"><i class="fas fa-phone"></i> 88 99955-9412</span>
     </div>
   </footer>
 
-  <!-- Script para toggle do menu (três barrinhas) -->
   <script>
     const toggleBtn = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
     toggleBtn.addEventListener('click', () => {
       navMenu.classList.toggle('open');
-      // alterna ícone entre bars e times
       const icon = toggleBtn.querySelector('i');
       if (navMenu.classList.contains('open')) {
         icon.className = 'fas fa-times';
@@ -614,7 +704,6 @@
       }
     });
 
-    // Fecha menu ao clicar em um link (mobile)
     document.querySelectorAll('.nav-menu a').forEach(link => {
       link.addEventListener('click', () => {
         if (window.innerWidth <= 820) {
@@ -625,4 +714,4 @@
     });
   </script>
 </body>
-    </html>
+</html>
