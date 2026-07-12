@@ -158,18 +158,18 @@
       background: #1a1f29;
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
       position: relative;
-      height: 380px;
+      height: 400px;
     }
 
     .slider-track {
       display: flex;
-      width: 400%;
+      width: 100%;
       height: 100%;
-      animation: slideAnimation 20s infinite alternate ease-in-out;
+      animation: slideAnimation 16s infinite alternate ease-in-out;
     }
 
     .slide {
-      flex: 1;
+      flex: 0 0 100%;
       height: 100%;
       background-size: cover;
       background-position: center;
@@ -177,47 +177,34 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.15);
-      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-      background-blend-mode: overlay;
-      background-image: repeating-linear-gradient(45deg, #2c3342 0px, #2c3342 2px, #3a4255 2px, #3a4255 6px);
     }
 
-    .slide:nth-child(1) { background-color: #1f2533; }
-    .slide:nth-child(2) { background-color: #252c3d; }
-    .slide:nth-child(3) { background-color: #1b212e; }
-    .slide:nth-child(4) { background-color: #222a39; }
-
-    .slide-content {
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(4px);
-      padding: 24px 40px;
-      border-radius: 60px;
-      border-left: 4px solid #e34f2b;
-      color: #fff;
-      font-weight: 500;
-      font-size: 1.6rem;
-      letter-spacing: 1px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    }
-
-    .slide-content i {
-      margin-right: 14px;
-      color: #e34f2b;
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     @keyframes slideAnimation {
       0% { transform: translateX(0); }
-      20% { transform: translateX(0); }
-      25% { transform: translateX(-25%); }
-      45% { transform: translateX(-25%); }
-      50% { transform: translateX(-50%); }
-      70% { transform: translateX(-50%); }
-      75% { transform: translateX(-75%); }
-      95% { transform: translateX(-75%); }
+      25% { transform: translateX(0); }
+      33% { transform: translateX(-100%); }
+      58% { transform: translateX(-100%); }
+      66% { transform: translateX(-200%); }
+      91% { transform: translateX(-200%); }
       100% { transform: translateX(0); }
+    }
+
+    /* Apenas uma imagem, mas mantemos a animação com a mesma imagem */
+    .slider-track .slide {
+      background-image: url('WhatsApp Image 2026-07-11 at 22.12.02.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slider-track .slide img {
+      display: none; /* esconde a tag img, usa background-image */
     }
 
     /* ===== DESTAQUES ===== */
@@ -271,6 +258,7 @@
       justify-content: center;
       font-size: 4rem;
       color: rgba(255,255,255,0.1);
+      position: relative;
     }
 
     .destaque-img .icon-overlay {
@@ -302,10 +290,6 @@
       left: 12px;
     }
 
-    .destaque-img {
-      position: relative;
-    }
-
     .destaque-info {
       padding: 18px 18px 22px;
     }
@@ -322,15 +306,36 @@
       margin-bottom: 14px;
     }
 
+    /* ===== AUDIO PLAYER COR BRANCA ===== */
     .audio-player {
       width: 100%;
       margin-top: 6px;
       border-radius: 30px;
       filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      background: #1f273a;
+      color: #fff;
     }
 
     .audio-player::-webkit-media-controls-panel {
       background: #1f273a;
+      color: #fff;
+    }
+
+    .audio-player::-webkit-media-controls-current-time-display,
+    .audio-player::-webkit-media-controls-time-remaining-display {
+      color: #fff;
+    }
+
+    .audio-player::-webkit-media-controls-play-button {
+      background-color: #e34f2b;
+      border-radius: 50%;
+      color: #fff;
+    }
+
+    .audio-player::-webkit-media-controls-mute-button {
+      background-color: #2a3140;
+      border-radius: 50%;
+      color: #fff;
     }
 
     /* ===== CATEGORIAS ===== */
@@ -399,8 +404,9 @@
     .about-section p {
       color: #c8d0e0;
       font-size: 1.05rem;
-      line-height: 1.7;
-      max-width: 900px;
+      line-height: 1.8;
+      max-width: 1000px;
+      text-align: justify;
     }
 
     .about-section .services-list {
@@ -510,11 +516,6 @@
         height: 250px;
       }
 
-      .slide-content {
-        font-size: 1.2rem;
-        padding: 16px 24px;
-      }
-
       .destaque-grid {
         grid-template-columns: 1fr 1fr;
       }
@@ -540,6 +541,10 @@
       .about-section {
         padding: 24px 18px;
       }
+
+      .about-section p {
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -547,8 +552,8 @@
   <header>
     <div class="container header-inner">
       <div class="logo-area">
-        <!-- Logo imagem (logo1.img) -->
-        <img src="logo1.img" alt="ProStudio Áudio" onerror="this.style.display='none'">
+        <!-- Logo imagem (logo1.img.jpeg) -->
+        <img src="logo1.img.jpeg" alt="ProStudio Áudio" onerror="this.style.display='none'">
         <div class="logo-text">ProStudio <span>Áudio</span></div>
       </div>
 
@@ -567,13 +572,12 @@
   </header>
 
   <main class="container">
-    <!-- SLIDER HERO -->
+    <!-- HERO SLIDER - apenas a imagem, sem textos -->
     <section class="hero-slider">
       <div class="slider-track">
-        <div class="slide"><div class="slide-content"><i class="fas fa-wave-square"></i> Spots • Criatividade</div></div>
-        <div class="slide"><div class="slide-content"><i class="fas fa-broadcast"></i> Vinhetas • Identidade</div></div>
-        <div class="slide"><div class="slide-content"><i class="fas fa-comment-dots"></i> Chamadas • Engajamento</div></div>
-        <div class="slide"><div class="slide-content"><i class="fas fa-headphones"></i> ProStudio Áudio</div></div>
+        <div class="slide" style="background-image: url('WhatsApp Image 2026-07-11 at 22.12.02.jpeg');"></div>
+        <div class="slide" style="background-image: url('WhatsApp Image 2026-07-11 at 22.12.02.jpeg');"></div>
+        <div class="slide" style="background-image: url('WhatsApp Image 2026-07-11 at 22.12.02.jpeg');"></div>
       </div>
     </section>
 
@@ -624,7 +628,7 @@
             <span class="destaque-tag"><i class="fas fa-fire"></i> Chamada</span>
           </div>
           <div class="destaque-info">
-            <h3>Chamadas para Eventos Religiosos</h3>
+            <h3>Chamadas Shows Religiosos</h3>
             <p>Comunicação com emoção e credibilidade.</p>
             <audio controls class="audio-player" src="Chamada - RILDO FREITAS 20 ANOS (ITAPIPOCA).mp3.mpeg"></audio>
           </div>
@@ -651,11 +655,13 @@
       </div>
     </div>
 
-    <!-- SOBRE / RODAPÉ INSTITUCIONAL -->
+    <!-- SOBRE / RODAPÉ INSTITUCIONAL com texto justificado -->
     <div class="about-section">
       <h2><i class="fas fa-circle-info"></i> Pro Studio Áudio – Soluções em Áudio Há 25 Anos</h2>
-      <p>
-        Na Pro Studio Áudio, qualidade, criatividade e profissionalismo fazem parte de cada produção. Somos especialistas em criar conteúdos sonoros que fortalecem marcas, promovem produtos, divulgam eventos e comunicam sua mensagem com impacto, emoção e credibilidade.<br><br>
+      <p style="text-align: justify;">
+        Na Pro Studio Áudio, qualidade, criatividade e profissionalismo fazem parte de cada produção. Somos especialistas em criar conteúdos sonoros que fortalecem marcas, promovem produtos, divulgam eventos e comunicam sua mensagem com impacto, emoção e credibilidade.
+      </p>
+      <p style="text-align: justify; margin-top: 12px;">
         Atendemos empresas, agências de publicidade, emissoras de rádio, produtores e organizadores de eventos, oferecendo soluções personalizadas com agilidade, atenção aos detalhes e alto padrão de qualidade.
       </p>
       <ul class="services-list">
@@ -664,7 +670,7 @@
         <li><i class="fas fa-calendar-check"></i> Chamadas para shows, festas e eventos, desenvolvidas para atrair a atenção do público e valorizar sua divulgação.</li>
         <li><i class="fas fa-sliders-h"></i> Edição, tratamento e finalização de áudio, garantindo um som limpo, moderno e com qualidade profissional.</li>
       </ul>
-      <p style="margin-top: 16px;">
+      <p style="margin-top: 16px; text-align: justify;">
         <strong style="color: #f0b38c;">Pro Studio Áudio – Soluções em Áudio Há 25 Anos.</strong><br>
         Entre em contato e descubra como podemos transformar sua ideia em uma produção de áudio profissional.
       </p>
