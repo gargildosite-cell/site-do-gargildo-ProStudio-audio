@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>ProStudio Áudio · Soluções em Áudio</title>
-  <!-- Font Awesome (ícones) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -196,23 +195,22 @@
       100% { transform: translateX(0); }
     }
 
-    /* Apenas uma imagem, mas mantemos a animação com a mesma imagem */
     .slider-track .slide {
-      background-image: url('WhatsApp Image 2026-07-11 at 22.27.11.jpeg');
+      background-image: url('WhatsApp Image 2026-07-11 at 22.12.02.jpeg');
       background-size: cover;
       background-position: center;
     }
 
     .slider-track .slide img {
-      display: none; /* esconde a tag img, usa background-image */
+      display: none;
     }
 
-    /* ===== DESTAQUES ===== */
-    .destaques {
+    /* ===== SEÇÕES DE ÁUDIO ===== */
+    .audio-section {
       margin: 40px 0 32px;
     }
 
-    .destaques h2 {
+    .audio-section h2 {
       font-size: 2rem;
       font-weight: 600;
       margin-bottom: 28px;
@@ -221,121 +219,115 @@
       gap: 10px;
     }
 
-    .destaques h2 i {
+    .audio-section h2 i {
       color: #e34f2b;
       font-size: 2rem;
     }
 
-    .destaque-grid {
+    .audio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
     }
 
-    .destaque-card {
+    .audio-card {
       background: #161c26;
-      border-radius: 20px;
-      overflow: hidden;
+      border-radius: 16px;
+      padding: 16px 18px;
       border: 1px solid #2a3140;
-      transition: transform 0.25s ease, box-shadow 0.3s;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-    }
-
-    .destaque-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 32px rgba(227, 79, 43, 0.15);
-      border-color: #e34f2b;
-    }
-
-    .destaque-img {
-      height: 180px;
-      background-size: cover;
-      background-position: center;
-      background-color: #262e3f;
+      transition: 0.25s;
       display: flex;
-      align-items: flex-end;
-      padding: 12px;
-      justify-content: center;
-      font-size: 4rem;
-      color: rgba(255,255,255,0.1);
-      position: relative;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .destaque-img .icon-overlay {
-      font-size: 4.2rem;
-      color: rgba(227, 79, 43, 0.7);
-      text-shadow: 0 0 30px rgba(227, 79, 43, 0.2);
-      background: rgba(0,0,0,0.3);
-      padding: 12px 20px;
-      border-radius: 60px;
-      backdrop-filter: blur(4px);
+    .audio-card:hover {
+      border-color: #e34f2b;
+      background: #1b222f;
     }
 
-    .destaque-card:nth-child(1) .destaque-img { background: #1a212f; }
-    .destaque-card:nth-child(2) .destaque-img { background: #1f2738; }
-    .destaque-card:nth-child(3) .destaque-img { background: #17202e; }
-    .destaque-card:nth-child(4) .destaque-img { background: #1e2636; }
-
-    .destaque-tag {
-      background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(4px);
-      padding: 6px 16px;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #f0b38c;
-      border-left: 3px solid #e34f2b;
-      position: absolute;
-      bottom: 12px;
-      left: 12px;
-    }
-
-    .destaque-info {
-      padding: 18px 18px 22px;
-    }
-
-    .destaque-info h3 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .destaque-info p {
-      color: #abb2c2;
+    .audio-card .audio-name {
+      font-weight: 500;
       font-size: 0.95rem;
-      margin-bottom: 14px;
+      color: #d5dcee;
+      word-break: break-word;
     }
 
-    /* ===== AUDIO PLAYER COR BRANCA ===== */
-    .audio-player {
+    .audio-card .audio-player {
       width: 100%;
-      margin-top: 6px;
       border-radius: 30px;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      background: #1f273a;
+      color: #fff;
+      height: 40px;
+    }
+
+    .audio-card .audio-player::-webkit-media-controls-panel {
       background: #1f273a;
       color: #fff;
     }
 
-    .audio-player::-webkit-media-controls-panel {
-      background: #1f273a;
+    .audio-card .audio-player::-webkit-media-controls-current-time-display,
+    .audio-card .audio-player::-webkit-media-controls-time-remaining-display {
       color: #fff;
     }
 
-    .audio-player::-webkit-media-controls-current-time-display,
-    .audio-player::-webkit-media-controls-time-remaining-display {
-      color: #fff;
-    }
-
-    .audio-player::-webkit-media-controls-play-button {
+    .audio-card .audio-player::-webkit-media-controls-play-button {
       background-color: #e34f2b;
       border-radius: 50%;
       color: #fff;
     }
 
-    .audio-player::-webkit-media-controls-mute-button {
+    .audio-card .audio-player::-webkit-media-controls-mute-button {
       background-color: #2a3140;
       border-radius: 50%;
       color: #fff;
+    }
+
+    .audio-card .tag {
+      display: inline-block;
+      background: #e34f2b;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 12px;
+      border-radius: 20px;
+      width: fit-content;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .show-more-btn {
+      background: transparent;
+      border: 2px solid #e34f2b;
+      color: #f0b38c;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-block;
+      margin: 8px auto 0;
+    }
+
+    .show-more-btn:hover {
+      background: #e34f2b;
+      color: #fff;
+      transform: scale(1.02);
+    }
+
+    .audio-grid.hidden-items .audio-card:nth-child(n+4) {
+      display: none;
+    }
+
+    .audio-grid.show-all .audio-card {
+      display: flex !important;
+    }
+
+    .btn-wrapper {
+      text-align: center;
+      margin-top: 8px;
     }
 
     /* ===== CATEGORIAS ===== */
@@ -380,7 +372,7 @@
       margin-top: 6px;
     }
 
-    /* ===== SOBRE / RODAPÉ ===== */
+    /* ===== SOBRE ===== */
     .about-section {
       background: #121822;
       border-radius: 24px;
@@ -516,20 +508,12 @@
         height: 250px;
       }
 
-      .destaque-grid {
-        grid-template-columns: 1fr 1fr;
+      .audio-grid {
+        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 500px) {
-      .destaque-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .categorias {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .logo-text {
         font-size: 1.2rem;
       }
@@ -552,7 +536,6 @@
   <header>
     <div class="container header-inner">
       <div class="logo-area">
-        <!-- Logo imagem (logo1.img.jpeg) -->
         <img src="logo1.img.jpeg" alt="ProStudio Áudio" onerror="this.style.display='none'">
         <div class="logo-text">ProStudio <span>Áudio</span></div>
       </div>
@@ -572,71 +555,107 @@
   </header>
 
   <main class="container">
-    <!-- HERO SLIDER - apenas a imagem, sem textos -->
+    <!-- HERO SLIDER -->
     <section class="hero-slider">
       <div class="slider-track">
-        <div class="slide" style="background-image: url('WhatsApp Image 2026-07-11 at 22.27.11.jpeg');"></div>
-        <div class="slide" style="background-image: url('WhatsApp Image 2026-07-11 at 22.27.11.jpeg');"></div>
-        <div class="slide" style="background-image: url('WhatsApp Image 2026-07-11 at 22.27.11.jpeg');"></div>
+        <div class="slide" style="background-image: url('WhatsApp Image 2026-07-11 at 22.12.02.jpeg');"></div>
+        <div class="slide" style="background-image: url('WhatsApp Image 2026-07-11 at 22.12.02.jpeg');"></div>
+        <div class="slide" style="background-image: url('WhatsApp Image 2026-07-11 at 22.12.02.jpeg');"></div>
       </div>
     </section>
 
-    <!-- DESTAQUES com ícones + players de áudio -->
-    <section class="destaques">
-      <h2><i class="fas fa-star"></i> Destaques</h2>
-      <div class="destaque-grid">
-        <!-- Spot -->
-        <div class="destaque-card">
-          <div class="destaque-img">
-            <span class="icon-overlay"><i class="fas fa-user-tie"></i></span>
-            <span class="destaque-tag"><i class="fas fa-bolt"></i> Spot</span>
-          </div>
-          <div class="destaque-info">
-            <h3>Spot Comercial</h3>
-            <p>Produção profissional para rádio e mídias.</p>
-            <audio controls class="audio-player" src="Spot - Caixa.mp3.mpeg"></audio>
-          </div>
-        </div>
-        <!-- Vinheta -->
-        <div class="destaque-card">
-          <div class="destaque-img">
-            <span class="icon-overlay"><i class="fas fa-headphones"></i></span>
-            <span class="destaque-tag"><i class="fas fa-waveform"></i> Vinheta</span>
-          </div>
-          <div class="destaque-info">
-            <h3>Vinheta Rádio</h3>
-            <p>Identidade sonora para emissoras e podcasts.</p>
-            <audio controls class="audio-player" src="VH - Rádio Web Mundaú .mp3.mpeg"></audio>
-          </div>
-        </div>
-        <!-- Chamada -->
-        <div class="destaque-card">
-          <div class="destaque-img">
-            <span class="icon-overlay"><i class="fas fa-microphone-alt"></i></span>
-            <span class="destaque-tag"><i class="fas fa-bullhorn"></i> Chamada</span>
-          </div>
-          <div class="destaque-info">
-            <h3>Chamada para Eventos</h3>
-            <p>Chamadas dinâmicas para shows e festas.</p>
-            <audio controls class="audio-player" src="Chamada - PRA CIMA TATY GIRL .mp3.mpeg"></audio>
-          </div>
-        </div>
-        <!-- Chamada Shows Religiosos -->
-        <div class="destaque-card">
-          <div class="destaque-img">
-            <span class="icon-overlay"><i class="fas fa-hands-praying"></i></span>
-            <span class="destaque-tag"><i class="fas fa-fire"></i> Chamada</span>
-          </div>
-          <div class="destaque-info">
-            <h3>Chamadas Shows Religiosos</h3>
-            <p>Comunicação com emoção e credibilidade.</p>
-            <audio controls class="audio-player" src="Chamada - RILDO FREITAS 20 ANOS (ITAPIPOCA).mp3.mpeg"></audio>
-          </div>
-        </div>
+    <!-- ===== SPOTS COMERCIAL ===== -->
+    <section class="audio-section" id="spots">
+      <h2><i class="fas fa-bullhorn"></i> Spots Comercial</h2>
+      <div class="audio-grid hidden-items" id="spotsGrid">
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Chamada - Aquecimento FF - Itapipoca</span><audio controls class="audio-player" src="Chamada - Aquecimento FF - Itapipoca.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Chamada Rádio - Arraiá da Paz (Shalom)</span><audio controls class="audio-player" src="Chamada Rádio - Arraiá da Paz (Shalom).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Santa Quiteria 166 Anos (Narração Nordestina)</span><audio controls class="audio-player" src="Santa Quiteria 166 Anos (Narração Nordestina) (1).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Alfa Baby - Regravação</span><audio controls class="audio-player" src="Spot - Alfa Baby - Regravação.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - ARENA PIZZA</span><audio controls class="audio-player" src="Spot - ARENA PIZZA.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - BISS 2</span><audio controls class="audio-player" src="Spot - BISS 2.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - BotiPromo 01</span><audio controls class="audio-player" src="Spot - BotiPromo 01.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - BRISA NET 01</span><audio controls class="audio-player" src="Spot - BRISA NET 01.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Casa do Celular (Black Friday)</span><audio controls class="audio-player" src="Spot - Casa do Celular (Black Friday).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Clinica Centro Imagem</span><audio controls class="audio-player" src="Spot - Clinica Centro Imagem.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Faculdade Anhanguera</span><audio controls class="audio-player" src="Spot - Faculdade Anhanguera.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - LB Veiculos</span><audio controls class="audio-player" src="Spot - LB Veiculos.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - O Boticario Ciclo 8 - 02</span><audio controls class="audio-player" src="Spot - O Boticario Ciclo 8 --- 02.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - OTICAS CAROL FÉRIAS 01</span><audio controls class="audio-player" src="Spot - OTICAS CAROL FÉRIAS 01.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Parque dos Pirineus</span><audio controls class="audio-player" src="Spot - Parque dos Pirineus.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Unimed Carnaval 001</span><audio controls class="audio-player" src="Spot - Unimed Carnaval 001.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot Unimed - Dia da Água - ACARAÚ</span><audio controls class="audio-player" src="Spot Unimed - Dia da Água - ACARAÚ (1).mp3"></audio></div>
       </div>
+      <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('spotsGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
     </section>
 
-    <!-- CATEGORIAS: Spots, Chamadas (com ícone play), Vinhetas -->
+    <!-- ===== CHAMADAS ===== -->
+    <section class="audio-section" id="chamadas">
+      <h2><i class="fas fa-play-circle"></i> Chamadas</h2>
+      <div class="audio-grid hidden-items" id="chamadasGrid">
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">01 - Chamada - JOELMA TRAIRI</span><audio controls class="audio-player" src="01 - Chamada - JOELMA TRAIRI.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Aldair All Black (Bela Cruz)</span><audio controls class="audio-player" src="Chamada - Aldair All Black (Bela Cruz ).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Aquecimento FF - Itapipoca</span><audio controls class="audio-player" src="Chamada - Aquecimento FF - Itapipoca.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - FESTA A FANTASIA</span><audio controls class="audio-player" src="Chamada - FESTA A FANTASIA.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Festa Das das Flores 01</span><audio controls class="audio-player" src="Chamada - Festa Das das Flores 01.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">CHAMADA - FESTIVAL DA CERVEJA MUNDAÚ</span><audio controls class="audio-player" src="CHAMADA - FESTIVAL DA CERVEJA MUNDAÚ.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Geraldo Monteiro 2019 (REDES)</span><audio controls class="audio-player" src="Chamada - Geraldo Monteiro 2019 (REDES).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - HALLOWEEN</span><audio controls class="audio-player" src="Chamada - HALLOWEEN.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Janeiro Fest Sandubas</span><audio controls class="audio-player" src="Chamada - Janeiro Fest Sandubas.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - LIVE BAND FESTIVAL (AMONTADA)</span><audio controls class="audio-player" src="Chamada - LIVE BAND FESTIVAL (AMONTADA).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - MASTRUZ CALUGI</span><audio controls class="audio-player" src="Chamada - MASTRUZ CALUGI.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - O REI E O MESTRE</span><audio controls class="audio-player" src="Chamada - O REI E O MESTRE.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - PRA CIMA TATY GIRL 01</span><audio controls class="audio-player" src="Chamada - PRA CIMA TATY GIRL 01.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - SEMANA SANTA NA ILHA</span><audio controls class="audio-player" src="Chamada - SEMANA SANTA NA ILHA.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - SÓ DAS ANTIGAS (Amontada)</span><audio controls class="audio-player" src="Chamada - SÓ DAS ANTIGAS (Amontada).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada 01 - BAR DO VICENTE NERY (FIVE ITAPIPOCA)</span><audio controls class="audio-player" src="Chamada 01 - BAR DO VICENTE NERY (FIVE ITAPIPOCA).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">III TERTULIA DOS ANOS 80</span><audio controls class="audio-player" src="III TERTULIA DOS ANOS 80.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Spot - MOVIMENTO HIP HOP</span><audio controls class="audio-player" src="Spot - MOVIMENTO HIP HOP.mp3"></audio></div>
+      </div>
+      <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('chamadasGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
+    </section>
+
+    <!-- ===== CHAMADAS SHOWS RELIGIOSOS ===== -->
+    <section class="audio-section" id="religiosos">
+      <h2><i class="fas fa-hands-praying"></i> Chamadas Shows Religiosos</h2>
+      <div class="audio-grid hidden-items" id="religiososGrid">
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">01 - Chamada - RILDO FREITAS 20 ANOS (SOBRAL)</span><audio controls class="audio-player" src="01 - Chamada - RILDO FREITAS 20 ANOS (SOBRAL) (1).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - 70 ANOS PRESBITERIANA (VERSÃO 001)</span><audio controls class="audio-player" src="Chamada - 70 ANOS PRESBITERIANA ((VERSÃO 001)).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Dia do Evangelico 2022</span><audio controls class="audio-player" src="Chamada - Dia do Evangelico 2022.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Evangelizar é Preciso</span><audio controls class="audio-player" src="Chamada - Evangelizar é Preciso.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Shalom</span><audio controls class="audio-player" src="Chamada - Shalom.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada Luau 180 Graus</span><audio controls class="audio-player" src="Chamada Luau 180 Graus.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Despertai Jovem</span><audio controls class="audio-player" src="Despertai Jovem.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Spot - Felipão Testemunho</span><audio controls class="audio-player" src="Spot - Felipão Testemunho.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Spot - FESTA DIVINA MISERICORDIA 2020</span><audio controls class="audio-player" src="Spot - FESTA DIVINA MISERICORDIA 2020.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Spot - LIVE SHALOM</span><audio controls class="audio-player" src="Spot - LIVE SHALOM.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Spot - São Sebastião - É NESTE DOMINGO (ABERTURA)</span><audio controls class="audio-player" src="Spot - São Sebastião - É NESTE DOMINGO (ABERTURA).mp3"></audio></div>
+      </div>
+      <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('religiososGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
+    </section>
+
+    <!-- ===== VINHETAS RÁDIO ===== -->
+    <section class="audio-section" id="vinhetas">
+      <h2><i class="fas fa-music"></i> Vinhetas Rádio</h2>
+      <div class="audio-grid hidden-items" id="vinhetasGrid">
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">02 - Rádio Web Mundaú - Prod. 01</span><audio controls class="audio-player" src="02 - Rádio Web Mundaú - Prod. 01.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">02</span><audio controls class="audio-player" src="02.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">03 - Esperança FM 001</span><audio controls class="audio-player" src="03 - Esperança FM 001.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">06 - Whats App 01 - Esperança</span><audio controls class="audio-player" src="06 - Whats App 01 - Esperança.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">Abertura - One Cast - Impulsione</span><audio controls class="audio-player" src="Abertura - One Cast - Impulsione (1).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">Abertura</span><audio controls class="audio-player" src="Abertura.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">Chamada - PROGRAMA ESPAÇO MULHER</span><audio controls class="audio-player" src="Chamada - PROGRAMA ESPAÇO MULHER.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">Encerramento - One Cast - Impulsione</span><audio controls class="audio-player" src="Encerramento - One Cast - Impulsione.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">MIX MATEUS</span><audio controls class="audio-player" src="MIX MATEUS (1).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">Prefixo Esperança FM 106,1</span><audio controls class="audio-player" src="Prefixo Esperança FM 106,1.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Galícia (Prod)</span><audio controls class="audio-player" src="VH - Galícia (Prod) (1).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH 03 - Programa Amontada Ativa</span><audio controls class="audio-player" src="VH 03 - Programa Amontada Ativa (1).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH 05 - Programa Amontada Ativa</span><audio controls class="audio-player" src="VH 05 - Programa Amontada Ativa (1).mp3"></audio></div>
+      </div>
+      <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('vinhetasGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
+    </section>
+
+    <!-- CATEGORIAS -->
     <div class="categorias">
       <div class="categoria-card">
         <i class="fas fa-microphone-alt"></i>
@@ -655,7 +674,7 @@
       </div>
     </div>
 
-    <!-- SOBRE / RODAPÉ INSTITUCIONAL com texto justificado -->
+    <!-- SOBRE -->
     <div class="about-section">
       <h2><i class="fas fa-circle-info"></i> Pro Studio Áudio – Soluções em Áudio Há 25 Anos</h2>
       <p style="text-align: justify;">
@@ -680,7 +699,7 @@
     </div>
   </main>
 
-  <!-- Botão flutuante WhatsApp -->
+  <!-- WhatsApp Float -->
   <a href="https://wa.me/5588999559412?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20spots,%20vinhetas%20e%20chamadas." 
      class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
@@ -697,6 +716,7 @@
   </footer>
 
   <script>
+    // Toggle menu
     const toggleBtn = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -718,6 +738,23 @@
         }
       });
     });
+
+    // Função toggle mostrar mais/menos
+    function toggleGrid(gridId) {
+      const grid = document.getElementById(gridId);
+      const btn = grid.parentElement.querySelector('.show-more-btn');
+      if (grid.classList.contains('hidden-items')) {
+        grid.classList.remove('hidden-items');
+        grid.classList.add('show-all');
+        btn.innerHTML = 'Mostrar menos <i class="fas fa-chevron-up"></i>';
+      } else {
+        grid.classList.add('hidden-items');
+        grid.classList.remove('show-all');
+        btn.innerHTML = 'Mostrar mais <i class="fas fa-chevron-down"></i>';
+        // scroll suave para o topo da seção
+        grid.parentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
   </script>
 </body>
 </html>
