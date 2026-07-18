@@ -104,6 +104,7 @@
       border-bottom: 2px solid transparent;
       transition: 0.2s;
       letter-spacing: 0.3px;
+      cursor: pointer;
     }
 
     .nav-menu li a:hover,
@@ -164,7 +165,7 @@
       display: flex;
       width: 100%;
       height: 100%;
-      animation: slideAnimation 16s infinite alternate ease-in-out;
+      animation: slideAnimation 20s infinite alternate ease-in-out;
     }
 
     .slide {
@@ -180,18 +181,61 @@
 
     @keyframes slideAnimation {
       0% { transform: translateX(0); }
-      25% { transform: translateX(0); }
-      33% { transform: translateX(-100%); }
-      58% { transform: translateX(-100%); }
-      66% { transform: translateX(-200%); }
-      91% { transform: translateX(-200%); }
+      20% { transform: translateX(0); }
+      25% { transform: translateX(-100%); }
+      45% { transform: translateX(-100%); }
+      50% { transform: translateX(-200%); }
+      70% { transform: translateX(-200%); }
+      75% { transform: translateX(-300%); }
+      95% { transform: translateX(-300%); }
       100% { transform: translateX(0); }
     }
 
-    .slider-track .slide {
+    .slider-track .slide:nth-child(1) {
       background-image: url('WhatsApp Image 2026-07-11 at 22.27.11.jpeg');
       background-size: cover;
       background-position: center;
+    }
+    .slider-track .slide:nth-child(2) {
+      background-image: url('WhatsApp Image 2026-07-17 at 21.04.24.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+    .slider-track .slide:nth-child(3) {
+      background-image: url('WhatsApp Image 2026-07-11 at 22.27.11.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+    .slider-track .slide:nth-child(4) {
+      background-image: url('WhatsApp Image 2026-07-17 at 21.04.24.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* ===== BANNER WHATSAPP (substitui as categorias) ===== */
+    .banner-whatsapp {
+      margin: 40px 0 48px;
+      border-radius: 24px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .banner-whatsapp:hover {
+      transform: scale(1.01);
+    }
+
+    .banner-whatsapp a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .banner-whatsapp img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 24px;
     }
 
     /* ===== SEÇÕES DE ÁUDIO ===== */
@@ -211,6 +255,22 @@
     .audio-section h2 i {
       color: #e34f2b;
       font-size: 2rem;
+    }
+
+    .destaque-titulo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #f0b38c;
+      text-align: center;
+      margin: 20px 0 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 0 30px rgba(227, 79, 43, 0.2);
+    }
+
+    .destaque-titulo i {
+      color: #e34f2b;
+      margin-right: 12px;
     }
 
     .audio-grid {
@@ -319,48 +379,6 @@
       margin-top: 8px;
     }
 
-    /* ===== CATEGORIAS ===== */
-    .categorias {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin: 40px 0 48px;
-    }
-
-    .categoria-card {
-      background: #141a24;
-      padding: 28px 16px;
-      border-radius: 20px;
-      text-align: center;
-      border: 1px solid #2a313f;
-      transition: 0.25s;
-      cursor: default;
-    }
-
-    .categoria-card:hover {
-      border-color: #e34f2b;
-      background: #1b222f;
-      transform: scale(1.02);
-    }
-
-    .categoria-card i {
-      font-size: 2.8rem;
-      color: #e34f2b;
-      margin-bottom: 12px;
-      display: block;
-    }
-
-    .categoria-card h3 {
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-
-    .categoria-card p {
-      color: #9aa3b5;
-      font-size: 0.9rem;
-      margin-top: 6px;
-    }
-
     /* ===== SOBRE ===== */
     .about-section {
       background: #121822;
@@ -410,6 +428,96 @@
     .about-section .services-list li i {
       color: #e34f2b;
       width: 24px;
+    }
+
+    /* ===== CONTATOS / REDES SOCIAIS ===== */
+    .contato-section {
+      background: #121822;
+      border-radius: 24px;
+      padding: 36px 32px;
+      margin: 40px 0 30px;
+      border-left: 6px solid #25D366;
+      text-align: center;
+    }
+
+    .contato-section h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #f0b38c;
+    }
+
+    .contato-section h2 i {
+      color: #e34f2b;
+      margin-right: 12px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 12px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #1e2638;
+      padding: 14px 28px;
+      border-radius: 50px;
+      color: #d5dcee;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: 0.25s;
+      border: 1px solid #2a3140;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .social-links a.instagram:hover {
+      border-color: #E4405F;
+      color: #E4405F;
+    }
+
+    .social-links a.facebook:hover {
+      border-color: #1877F2;
+      color: #1877F2;
+    }
+
+    .social-links a.soundcloud:hover {
+      border-color: #FF5500;
+      color: #FF5500;
+    }
+
+    .social-links a.whatsapp:hover {
+      border-color: #25D366;
+      color: #25D366;
+    }
+
+    .social-links a i {
+      font-size: 1.6rem;
+    }
+
+    .social-links a.instagram i { color: #E4405F; }
+    .social-links a.facebook i { color: #1877F2; }
+    .social-links a.soundcloud i { color: #FF5500; }
+    .social-links a.whatsapp i { color: #25D366; }
+
+    .contato-email {
+      margin-top: 20px;
+      color: #aab4cc;
+      font-size: 1.1rem;
+    }
+
+    .contato-email i {
+      color: #e34f2b;
+      margin-right: 8px;
     }
 
     .whatsapp-float {
@@ -500,6 +608,11 @@
       .audio-grid {
         grid-template-columns: 1fr;
       }
+
+      .social-links a {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+      }
     }
 
     @media (max-width: 500px) {
@@ -518,6 +631,24 @@
       .about-section p {
         text-align: left;
       }
+
+      .contato-section {
+        padding: 24px 18px;
+      }
+
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-links a {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .destaque-titulo {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -525,7 +656,7 @@
   <header>
     <div class="container header-inner">
       <div class="logo-area">
-        <img src="WhatsApp Image 2026-07-17 at 09.47.30.jpeg" alt="ProStudio Áudio" onerror="this.style.display='none'">
+        <img src="logo1.img.jpeg" alt="ProStudio Áudio" onerror="this.style.display='none'">
         <div class="logo-text">ProStudio <span>Áudio</span></div>
       </div>
 
@@ -534,24 +665,37 @@
       </button>
 
       <ul class="nav-menu" id="navMenu">
-        <li><a href="#" class="active"><i class="fas fa-bullhorn"></i> Spots</a></li>
-        <li><a href="#"><i class="fas fa-play-circle"></i> Chamadas</a></li>
-        <li><a href="#"><i class="fas fa-music"></i> Vinhetas</a></li>
-        <li><a href="#" class="contato-btn"><i class="fas fa-envelope"></i> Contatos</a></li>
+        <li><a href="#spots" class="active"><i class="fas fa-bullhorn"></i> Spots</a></li>
+        <li><a href="#chamadas"><i class="fas fa-play-circle"></i> Chamadas</a></li>
+        <li><a href="#vinhetas"><i class="fas fa-music"></i> Vinhetas</a></li>
+        <li><a href="#contato" class="contato-btn"><i class="fas fa-envelope"></i> Contatos</a></li>
         <li><a href="https://wa.me/5588999559412?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20spots,%20vinhetas%20e%20chamadas." class="whatsapp-nav" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
       </ul>
     </div>
   </header>
 
   <main class="container">
-    <!-- HERO SLIDER -->
+    <!-- HERO SLIDER com as duas imagens -->
     <section class="hero-slider">
       <div class="slider-track">
-        <div class="slide" style="background-image: url('WhatsApp Image 2026-07-11 at 22.27.11.jpeg');"></div>
-        <div class="slide" style="background-image: url('WhatsApp Image 2026-07-11 at 22.27.11.jpeg');"></div>
-        <div class="slide" style="background-image: url('WhatsApp Image 2026-07-11 at 22.27.11.jpeg');"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
       </div>
     </section>
+
+    <!-- BANNER WHATSAPP (substitui as categorias) -->
+    <section class="banner-whatsapp">
+      <a href="https://wa.me/5588999559412?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20spots,%20vinhetas%20e%20chamadas." target="_blank">
+        <img src="WhatsApp Image 2026-07-17 at 10.28.37.jpeg" alt="Fale conosco no WhatsApp">
+      </a>
+    </section>
+
+    <!-- TÍTULO DEMONSTRATIVOS -->
+    <div class="destaque-titulo">
+      <i class="fas fa-headphones"></i> DEMONSTRATIVOS
+    </div>
 
     <!-- ===== SPOTS COMERCIAL ===== -->
     <section class="audio-section" id="spots">
@@ -644,26 +788,7 @@
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('vinhetasGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
     </section>
 
-    <!-- CATEGORIAS -->
-    <div class="categorias">
-      <div class="categoria-card">
-        <i class="fas fa-microphone-alt"></i>
-        <h3>Spots</h3>
-        <p>Gravação de spots publicitários</p>
-      </div>
-      <div class="categoria-card">
-        <i class="fas fa-play-circle"></i>
-        <h3>Chamadas</h3>
-        <p>Chamadas de Shows e Eventos</p>
-      </div>
-      <div class="categoria-card">
-        <i class="fas fa-headphones"></i>
-        <h3>Vinhetas</h3>
-        <p>Vinhetas personalizadas e pacotes</p>
-      </div>
-    </div>
-
-    <!-- SOBRE - TEXTO ATUALIZADO -->
+    <!-- SOBRE -->
     <div class="about-section">
       <h2><i class="fas fa-circle-info"></i> Pro Studio Áudio – Soluções em Áudio Há 25 Anos</h2>
       <p style="text-align: justify;">
@@ -682,10 +807,32 @@
         <strong style="color: #f0b38c;">Pro Studio Áudio – Soluções em Áudio Há 25 Anos.</strong><br>
         Entre em contato e descubra como podemos transformar sua ideia em uma produção de áudio profissional.
       </p>
-      <p style="margin-top: 12px; color: #aab4cc;">
-        <i class="fas fa-envelope" style="color: #e34f2b;"></i> prostudioaudio10@gmail.com
-      </p>
     </div>
+
+    <!-- CONTATOS / REDES SOCIAIS -->
+    <section class="contato-section" id="contato">
+      <h2><i class="fas fa-address-card"></i> Conecte-se conosco</h2>
+      <div class="social-links">
+        <a href="https://www.instagram.com/prostudioaudio/" target="_blank" class="instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100054448511598&locale=pt_BR" target="_blank" class="facebook">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="https://soundcloud.com/prostudioaudio" target="_blank" class="soundcloud">
+          <i class="fab fa-soundcloud"></i> SoundCloud
+        </a>
+        <a href="https://wa.me/5588999559412?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20spots,%20vinhetas%20e%20chamadas." target="_blank" class="whatsapp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+      <div class="contato-email">
+        <i class="fas fa-envelope"></i> prostudioaudio10@gmail.com
+      </div>
+      <div class="contato-email" style="margin-top: 8px;">
+        <i class="fas fa-phone"></i> 88 99955-9412
+      </div>
+    </section>
   </main>
 
   <!-- WhatsApp Float -->
@@ -697,8 +844,9 @@
   <footer class="container">
     <div>© 2026 ProStudio Áudio · Soluções em Áudio</div>
     <div class="footer-links">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com/prostudioaudio/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100054448511598&locale=pt_BR" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://soundcloud.com/prostudioaudio" target="_blank"><i class="fab fa-soundcloud"></i></a>
       <a href="mailto:prostudioaudio10@gmail.com"><i class="fas fa-envelope"></i></a>
       <span style="margin-left: 12px; color: #e34f2b;"><i class="fas fa-phone"></i> 88 99955-9412</span>
     </div>
@@ -719,8 +867,25 @@
       }
     });
 
+    // Fecha menu ao clicar em link (mobile)
     document.querySelectorAll('.nav-menu a').forEach(link => {
       link.addEventListener('click', () => {
+        if (window.innerWidth <= 820) {
+          navMenu.classList.remove('open');
+          toggleBtn.querySelector('i').className = 'fas fa-bars';
+        }
+      });
+    });
+
+    // Scroll suave para os links do menu
+    document.querySelectorAll('.nav-menu a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        // Fecha menu mobile
         if (window.innerWidth <= 820) {
           navMenu.classList.remove('open');
           toggleBtn.querySelector('i').className = 'fas fa-bars';
