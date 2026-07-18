@@ -299,36 +299,6 @@
       word-break: break-word;
     }
 
-    .audio-card .audio-player {
-      width: 100%;
-      border-radius: 30px;
-      background: #1f273a;
-      color: #fff;
-      height: 40px;
-    }
-
-    .audio-card .audio-player::-webkit-media-controls-panel {
-      background: #1f273a;
-      color: #fff;
-    }
-
-    .audio-card .audio-player::-webkit-media-controls-current-time-display,
-    .audio-card .audio-player::-webkit-media-controls-time-remaining-display {
-      color: #fff;
-    }
-
-    .audio-card .audio-player::-webkit-media-controls-play-button {
-      background-color: #e34f2b;
-      border-radius: 50%;
-      color: #fff;
-    }
-
-    .audio-card .audio-player::-webkit-media-controls-mute-button {
-      background-color: #2a3140;
-      border-radius: 50%;
-      color: #fff;
-    }
-
     .audio-card .tag {
       display: inline-block;
       background: #e34f2b;
@@ -340,6 +310,119 @@
       width: fit-content;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+    }
+
+    /* Player customizado */
+    .custom-player {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #1f273a;
+      border-radius: 30px;
+      padding: 6px 14px 6px 10px;
+      width: 100%;
+      min-height: 44px;
+      border: 1px solid #2a3140;
+      transition: 0.2s;
+    }
+
+    .custom-player:hover {
+      border-color: #e34f2b;
+    }
+
+    .custom-player .play-btn {
+      background: #e34f2b;
+      color: #fff;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      flex-shrink: 0;
+    }
+
+    .custom-player .play-btn:hover {
+      background: #cf3e1c;
+      transform: scale(1.05);
+    }
+
+    .custom-player .play-btn.loading {
+      opacity: 0.6;
+      cursor: wait;
+    }
+
+    .custom-player .progress-bar {
+      flex: 1;
+      height: 4px;
+      background: #3a4255;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      min-width: 60px;
+    }
+
+    .custom-player .progress-bar .progress-fill {
+      height: 100%;
+      background: #e34f2b;
+      border-radius: 4px;
+      width: 0%;
+      transition: width 0.1s;
+    }
+
+    .custom-player .time-display {
+      font-size: 0.75rem;
+      color: #9aa3b5;
+      font-family: monospace;
+      min-width: 70px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .custom-player .error-msg {
+      font-size: 0.7rem;
+      color: #ff6b6b;
+      display: none;
+      margin-left: auto;
+    }
+
+    .custom-player .error-msg.visible {
+      display: block;
+    }
+
+    .custom-player .volume-control {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .custom-player .volume-control i {
+      color: #7f889c;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    .custom-player .volume-control input[type="range"] {
+      width: 50px;
+      height: 3px;
+      -webkit-appearance: none;
+      background: #3a4255;
+      border-radius: 3px;
+      outline: none;
+    }
+
+    .custom-player .volume-control input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #e34f2b;
+      cursor: pointer;
     }
 
     .show-more-btn {
@@ -563,21 +646,6 @@
       color: #fff;
     }
 
-    /* Mensagem de erro para áudio */
-    .audio-error {
-      color: #ff6b6b;
-      font-size: 0.85rem;
-      background: #2a1a1a;
-      padding: 8px 12px;
-      border-radius: 8px;
-      border-left: 3px solid #ff6b6b;
-      display: none;
-    }
-
-    .audio-error.visible {
-      display: block;
-    }
-
     @media (max-width: 820px) {
       .nav-toggle {
         display: block;
@@ -621,6 +689,10 @@
         padding: 12px 20px;
         font-size: 0.95rem;
       }
+
+      .custom-player .volume-control input[type="range"] {
+        width: 30px;
+      }
     }
 
     @media (max-width: 500px) {
@@ -656,6 +728,16 @@
 
       .destaque-titulo {
         font-size: 1.5rem;
+      }
+
+      .custom-player {
+        flex-wrap: wrap;
+        padding: 8px 12px;
+      }
+
+      .custom-player .time-display {
+        min-width: 50px;
+        font-size: 0.65rem;
       }
     }
   </style>
@@ -709,105 +791,201 @@
     <section class="audio-section" id="spots">
       <h2><i class="fas fa-bullhorn"></i> Spot Comercial</h2>
       <div class="audio-grid hidden-items" id="spotsGrid">
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Santa Quiteria 166 Anos (Narração Nordestina) (1).mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Santa Quitéria 166 Anos (Narração Nordestina)</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Santa Quiteria 166 Anos (Narração Nordestina) (1).mp3" type="audio/mpeg">
-            Seu navegador não suporta áudio.
-          </audio>
-          <div class="audio-error">⚠️ Áudio não encontrado. Verifique se o arquivo está no repositório.</div>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - Alfa Baby - Regravação.mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot - Alfa Baby</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - Alfa Baby - Regravação.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - ARENA PIZZA.mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot – Arena Pizza na Pedra</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - ARENA PIZZA.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - BotiPromo 01.mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot – BotiPromo</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - BotiPromo 01.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - BRISA NET 01.mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot – Brisa Net</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - BRISA NET 01.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - Casa do Celular (Black Friday).mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot - Casa do Celular (Black Friday)</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - Casa do Celular (Black Friday).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - Clinica Centro Imagem.mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot - Clinica Centro Imagem</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - Clinica Centro Imagem.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - Faculdade Anhanguera.mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot - Faculdade Anhanguera</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - Faculdade Anhanguera.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - LB Veiculos.mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot - LB Veiculos</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - LB Veiculos.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - O Boticario Ciclo 8 --- 02.mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot - O Boticário</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - O Boticario Ciclo 8 --- 02.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - OTICAS CAROL FÉRIAS 01.mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot – Óticas Carol</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - OTICAS CAROL FÉRIAS 01.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - Parque dos Pirineus.mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot - Parque dos Pirineus</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - Parque dos Pirineus.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - Unimed Carnaval 001.mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot - Unimed Carnaval</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - Unimed Carnaval 001.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot Unimed - Dia da Água - ACARAÚ (1).mp3">
           <span class="tag">Spot</span>
           <span class="audio-name">Spot Unimed - Dia da Água - ACARAÚ</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot Unimed - Dia da Água - ACARAÚ (1).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
       </div>
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('spotsGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
@@ -817,124 +995,243 @@
     <section class="audio-section" id="chamadas">
       <h2><i class="fas fa-play-circle"></i> Chamadas de Shows e Eventos</h2>
       <div class="audio-grid hidden-items" id="chamadasGrid">
-        <div class="audio-card">
+        <div class="audio-card" data-audio="01 - Chamada - JOELMA TRAIRI.mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada – Joelma Tomezão Club</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="01 - Chamada - JOELMA TRAIRI.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - Aldair All Black (Bela Cruz ).mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada - Aldair All Black</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - Aldair All Black (Bela Cruz ).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - Aquecimento FF - Itapipoca.mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada - Aquecimento Festa Das Flores</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - Aquecimento FF - Itapipoca.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - FESTA A FANTASIA.mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada - Festa A Fantasia</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - FESTA A FANTASIA.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - Festa Das das Flores 01.mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada - Festa Das das Flores</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - Festa Das das Flores 01.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="CHAMADA - FESTIVAL DA CERVEJA MUNDAÚ.mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada - Festival da Cerveja</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="CHAMADA - FESTIVAL DA CERVEJA MUNDAÚ.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - Geraldo Monteiro 2019 (REDES).mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada - Geraldo Monteiro</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - Geraldo Monteiro 2019 (REDES).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - HALLOWEEN.mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada - Halloween</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - HALLOWEEN.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - LIVE BAND FESTIVAL (AMONTADA).mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada – Live Band Festival</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - LIVE BAND FESTIVAL (AMONTADA).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - MASTRUZ CALUGI.mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada – Mastruz Com Leite</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - MASTRUZ CALUGI.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - O REI E O MESTRE.mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada - O Rei e o Mestre</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - O REI E O MESTRE.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - PRA CIMA TATY GIRL 01.mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada – Pra Cima Taty Girl</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - PRA CIMA TATY GIRL 01.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - SEMANA SANTA NA ILHA.mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada – Semana Santa na Ilha</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - SEMANA SANTA NA ILHA.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - SÓ DAS ANTIGAS (Amontada).mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada – Só Das Antigas</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - SÓ DAS ANTIGAS (Amontada).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada 01 - BAR DO VICENTE NERY (FIVE ITAPIPOCA).mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada – Bar do Vicente Nery</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada 01 - BAR DO VICENTE NERY (FIVE ITAPIPOCA).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="III TERTULIA DOS ANOS 80.mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada – Tertúlia Dos Anos 80</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="III TERTULIA DOS ANOS 80.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - MOVIMENTO HIP HOP.mp3">
           <span class="tag">Chamada</span>
           <span class="audio-name">Chamada – Movimento Hip Hop</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - MOVIMENTO HIP HOP.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
       </div>
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('chamadasGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
@@ -944,75 +1241,145 @@
     <section class="audio-section" id="religiosos">
       <h2><i class="fas fa-hands-praying"></i> Chamadas para Eventos Religiosos</h2>
       <div class="audio-grid hidden-items" id="religiososGrid">
-        <div class="audio-card">
+        <div class="audio-card" data-audio="01 - Chamada - RILDO FREITAS 20 ANOS (SOBRAL) (1).mp3">
           <span class="tag">Religioso</span>
           <span class="audio-name">Chamada - Rildo Freitas 20 Anos</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="01 - Chamada - RILDO FREITAS 20 ANOS (SOBRAL) (1).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - 70 ANOS PRESBITERIANA ((VERSÃO 001)).mp3">
           <span class="tag">Religioso</span>
           <span class="audio-name">Chamada - 70 Anos Igreja Presbiteriana</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - 70 ANOS PRESBITERIANA ((VERSÃO 001)).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada Rádio - Arraiá da Paz (Shalom).mp3">
           <span class="tag">Religioso</span>
           <span class="audio-name">Chamada Rádio - Arraiá da Paz (Shalom)</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada Rádio - Arraiá da Paz (Shalom).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - Dia do Evangelico 2022.mp3">
           <span class="tag">Religioso</span>
           <span class="audio-name">Chamada - Dia do Evangelico</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - Dia do Evangelico 2022.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - Evangelizar é Preciso.mp3">
           <span class="tag">Religioso</span>
           <span class="audio-name">Chamada - Evangelizar é Preciso</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - Evangelizar é Preciso.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Despertai Jovem.mp3">
           <span class="tag">Religioso</span>
           <span class="audio-name">Chamada - Despertai Jovem</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Despertai Jovem.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - Felipão Testemunho.mp3">
           <span class="tag">Religioso</span>
           <span class="audio-name">Chamada - Felipão Testemunho</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - Felipão Testemunho.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - FESTA DIVINA MISERICORDIA 2020.mp3">
           <span class="tag">Religioso</span>
           <span class="audio-name">Chamada - Festa Divida Misericórdia</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - FESTA DIVINA MISERICORDIA 2020.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - LIVE SHALOM.mp3">
           <span class="tag">Religioso</span>
           <span class="audio-name">Chamada - Live Shalom</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - LIVE SHALOM.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Spot - São Sebastião - É NESTE DOMINGO (ABERTURA).mp3">
           <span class="tag">Religioso</span>
           <span class="audio-name">Chamada - Festa São Sebastião</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Spot - São Sebastião - É NESTE DOMINGO (ABERTURA).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
       </div>
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('religiososGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
@@ -1022,68 +1389,131 @@
     <section class="audio-section" id="vinhetas">
       <h2><i class="fas fa-music"></i> Vinhetas</h2>
       <div class="audio-grid hidden-items" id="vinhetasGrid">
-        <div class="audio-card">
+        <div class="audio-card" data-audio="02 - Rádio Web Mundaú - Prod. 01.mp3">
           <span class="tag">Vinheta</span>
           <span class="audio-name">VH - Web Rádio Mundaú</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="02 - Rádio Web Mundaú - Prod. 01.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="02.mp3">
           <span class="tag">Vinheta</span>
           <span class="audio-name">VH – Somos Rádio Bom Demais</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="02.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="03 - Esperança FM 001.mp3">
           <span class="tag">Vinheta</span>
           <span class="audio-name">VH – Esperança FM</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="03 - Esperança FM 001.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Abertura - One Cast - Impulsione (1).mp3">
           <span class="tag">Vinheta</span>
           <span class="audio-name">VH – Horário Eleitoral</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Abertura - One Cast - Impulsione (1).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="Chamada - PROGRAMA ESPAÇO MULHER.mp3">
           <span class="tag">Vinheta</span>
           <span class="audio-name">VH - Programa Espaço Mulher</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="Chamada - PROGRAMA ESPAÇO MULHER.mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="MIX MATEUS (1).mp3">
           <span class="tag">Vinheta</span>
           <span class="audio-name">VH – Hora Certa – Mix Matheus</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="MIX MATEUS (1).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="VH - Galícia (Prod) (1).mp3">
           <span class="tag">Vinheta</span>
           <span class="audio-name">VH - Galícia (Banda de Forró)</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="VH - Galícia (Prod) (1).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="VH 03 - Programa Amontada Ativa (1).mp3">
           <span class="tag">Vinheta</span>
           <span class="audio-name">VH - Programa Prefeitura</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="VH 03 - Programa Amontada Ativa (1).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
-        <div class="audio-card">
+        <div class="audio-card" data-audio="VH 05 - Programa Amontada Ativa (1).mp3">
           <span class="tag">Vinheta</span>
           <span class="audio-name">VH - Programa Prefeitura</span>
-          <audio controls class="audio-player" preload="metadata">
-            <source src="VH 05 - Programa Amontada Ativa (1).mp3" type="audio/mpeg">
-          </audio>
+          <div class="custom-player">
+            <button class="play-btn"><i class="fas fa-play"></i></button>
+            <div class="progress-bar"><div class="progress-fill"></div></div>
+            <span class="time-display">0:00 / 0:00</span>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" min="0" max="1" step="0.05" value="0.8">
+            </div>
+            <span class="error-msg">⚠️ Erro</span>
+          </div>
         </div>
       </div>
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('vinhetasGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
@@ -1154,6 +1584,7 @@
   </footer>
 
   <script>
+    // Toggle menu
     const toggleBtn = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
 
@@ -1205,20 +1636,165 @@
       }
     }
 
-    // Verifica se os áudios carregaram e exibe erro se não
-    document.querySelectorAll('.audio-player').forEach(player => {
-      const errorDiv = player.parentElement.querySelector('.audio-error');
-      if (!errorDiv) return;
+    // ===== PLAYER PERSONALIZADO =====
+    document.querySelectorAll('.custom-player').forEach((player, index) => {
+      const card = player.closest('.audio-card');
+      const audioSrc = card.dataset.audio;
+      
+      if (!audioSrc) return;
 
-      player.addEventListener('error', function(e) {
-        errorDiv.classList.add('visible');
-        console.warn('Erro ao carregar áudio:', this.src);
+      const audio = new Audio(audioSrc);
+      audio.preload = 'metadata';
+
+      const playBtn = player.querySelector('.play-btn');
+      const progressFill = player.querySelector('.progress-fill');
+      const progressBar = player.querySelector('.progress-bar');
+      const timeDisplay = player.querySelector('.time-display');
+      const volumeSlider = player.querySelector('.volume-control input[type="range"]');
+      const volumeIcon = player.querySelector('.volume-control i');
+      const errorMsg = player.querySelector('.error-msg');
+
+      let isPlaying = false;
+      let isDragging = false;
+
+      // Carregar áudio
+      audio.addEventListener('loadedmetadata', () => {
+        updateTimeDisplay();
+        errorMsg.classList.remove('visible');
       });
 
-      // Tenta recarregar se falhar
-      player.addEventListener('loadeddata', function() {
-        errorDiv.classList.remove('visible');
+      audio.addEventListener('error', (e) => {
+        console.error('Erro ao carregar áudio:', audioSrc, e);
+        errorMsg.classList.add('visible');
+        playBtn.disabled = true;
+        playBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
+        playBtn.style.background = '#ff6b6b';
       });
+
+      // Play/Pause
+      playBtn.addEventListener('click', () => {
+        if (playBtn.disabled) return;
+        
+        if (audio.paused) {
+          audio.play().catch(err => {
+            console.error('Erro ao reproduzir:', err);
+            errorMsg.classList.add('visible');
+          });
+        } else {
+          audio.pause();
+        }
+      });
+
+      audio.addEventListener('play', () => {
+        isPlaying = true;
+        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      });
+
+      audio.addEventListener('pause', () => {
+        isPlaying = false;
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+      });
+
+      audio.addEventListener('ended', () => {
+        isPlaying = false;
+        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        progressFill.style.width = '0%';
+        updateTimeDisplay();
+      });
+
+      // Progresso
+      audio.addEventListener('timeupdate', () => {
+        if (!isDragging) {
+          const percent = (audio.currentTime / audio.duration) * 100;
+          progressFill.style.width = percent + '%';
+          updateTimeDisplay();
+        }
+      });
+
+      // Clique na barra de progresso
+      progressBar.addEventListener('click', (e) => {
+        const rect = progressBar.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        audio.currentTime = x * audio.duration;
+        progressFill.style.width = (x * 100) + '%';
+        updateTimeDisplay();
+      });
+
+      // Arrastar na barra
+      progressBar.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        const rect = progressBar.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        audio.currentTime = x * audio.duration;
+        progressFill.style.width = (x * 100) + '%';
+        updateTimeDisplay();
+
+        const onMouseMove = (ev) => {
+          const rect2 = progressBar.getBoundingClientRect();
+          let x2 = (ev.clientX - rect2.left) / rect2.width;
+          x2 = Math.max(0, Math.min(1, x2));
+          audio.currentTime = x2 * audio.duration;
+          progressFill.style.width = (x2 * 100) + '%';
+          updateTimeDisplay();
+        };
+
+        const onMouseUp = () => {
+          isDragging = false;
+          document.removeEventListener('mousemove', onMouseMove);
+          document.removeEventListener('mouseup', onMouseUp);
+        };
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+      });
+
+      // Volume
+      volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value;
+        updateVolumeIcon(volumeSlider.value);
+      });
+
+      function updateVolumeIcon(value) {
+        const v = parseFloat(value);
+        if (v === 0) {
+          volumeIcon.className = 'fas fa-volume-mute';
+        } else if (v < 0.5) {
+          volumeIcon.className = 'fas fa-volume-down';
+        } else {
+          volumeIcon.className = 'fas fa-volume-up';
+        }
+      }
+
+      volumeIcon.addEventListener('click', () => {
+        if (audio.volume > 0) {
+          audio.volume = 0;
+          volumeSlider.value = 0;
+          volumeIcon.className = 'fas fa-volume-mute';
+        } else {
+          audio.volume = 0.8;
+          volumeSlider.value = 0.8;
+          volumeIcon.className = 'fas fa-volume-up';
+        }
+      });
+
+      function updateTimeDisplay() {
+        if (audio.duration && !isNaN(audio.duration)) {
+          const current = formatTime(audio.currentTime);
+          const total = formatTime(audio.duration);
+          timeDisplay.textContent = current + ' / ' + total;
+        } else {
+          timeDisplay.textContent = '0:00 / 0:00';
+        }
+      }
+
+      function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return mins + ':' + (secs < 10 ? '0' : '') + secs;
+      }
+
+      // Preload
+      audio.load();
     });
   </script>
 </body>
