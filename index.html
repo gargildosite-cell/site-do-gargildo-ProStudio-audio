@@ -549,26 +549,6 @@
       color: #fff;
     }
 
-    /* Estilo para áudio com erro */
-    .audio-card.erro-audio .audio-player {
-      opacity: 0.5;
-      pointer-events: none;
-    }
-
-    .audio-card.erro-audio .audio-error {
-      display: block;
-      color: #ff6b6b;
-      font-size: 0.75rem;
-      background: #2a1414;
-      padding: 4px 10px;
-      border-radius: 6px;
-      border: 1px solid #ff6b6b44;
-    }
-
-    .audio-error {
-      display: none;
-    }
-
     @media (max-width: 820px) {
       .nav-toggle {
         display: block;
@@ -708,12 +688,11 @@
         <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Parque dos Pirineus</span><audio controls preload="metadata" class="audio-player" src="Spot - Parque dos Pirineus.mp3"></audio></div>
         <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Unimed Carnaval</span><audio controls preload="metadata" class="audio-player" src="Spot - Unimed Carnaval 001.mp3"></audio></div>
         <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot Unimed - Dia da Água - ACARAÚ</span><audio controls preload="metadata" class="audio-player" src="Spot Unimed - Dia da Água - ACARAÚ (1).mp3"></audio></div>
-        <!-- NOVO SPOT ADICIONADO - ÁUDIO DE TESTE FUNCIONANDO -->
+        <!-- NOVO SPOT ADICIONADO -->
         <div class="audio-card">
           <span class="tag">Spot</span>
           <span class="audio-name">Mensagem Comemorativa – Santa Quitéria 166 Anos</span>
           <audio controls preload="metadata" class="audio-player" src="mensagem-santa-quiteria.mp3"></audio>
-          <div class="audio-error">⚠️ Áudio de demonstração - substitua pelo seu arquivo</div>
         </div>
       </div>
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('spotsGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
@@ -773,17 +752,17 @@
         <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Programa Espaço Mulher</span><audio controls preload="metadata" class="audio-player" src="Chamada - PROGRAMA ESPAÇO MULHER.mp3"></audio></div>
         <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH – Hora Certa – Mix Matheus</span><audio controls preload="metadata" class="audio-player" src="MIX MATEUS (1).mp3"></audio></div>
         <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Galícia (Banda de Forró)</span><audio controls preload="metadata" class="audio-player" src="VH - Galícia (Prod) (1).mp3"></audio></div>
-        <!-- NOVAS VINHETAS ADICIONADAS - ÁUDIOS DE TESTE FUNCIONANDO -->
+        <!-- NOVAS VINHETAS ADICIONADAS -->
         <div class="audio-card">
           <span class="tag">Vinheta</span>
           <span class="audio-name">Vinheta de Abertura – Programa Amontada Ativa</span>
-          <audio controls preload="metadata" class="audio-player" src="chamada-amontada-ativa.mp3"></audio>
-          <div class="audio-error">⚠️ Áudio de demonstração - substitua pelo seu arquivo</div>
+          <audio controls preload="metadata" class="audio-player" src="vinheta-amontada-ativa.mp3"></audio>
         </div>
         <div class="audio-card">
           <span class="tag">Vinheta</span>
           <span class="audio-name">Chamada de Programação – Programa Amontada Ativa</span>
-          <audio controls preload="metadata" class="audio-player" src="vinheta-amontada-ativa.mp3"></audio>
+          <audio controls preload="metadata" class="audio-player" src="chamada-amontada-ativa.mp3"></audio>
+        </div>
       </div>
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('vinhetasGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
     </section>
@@ -897,16 +876,6 @@
         grid.parentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
-
-    // Detecta erro de carregamento de áudio
-    document.querySelectorAll('.audio-player').forEach(player => {
-      player.addEventListener('error', function() {
-        const card = this.closest('.audio-card');
-        if (card) {
-          card.classList.add('erro-audio');
-        }
-      });
-    });
   </script>
 </body>
 </html>
