@@ -98,6 +98,7 @@
       transition: 0.2s;
       letter-spacing: 0.3px;
       cursor: pointer;
+      white-space: nowrap;
     }
 
     .nav-menu li a:hover,
@@ -563,6 +564,7 @@
         gap: 12px;
         border-top: 1px solid #2a2f3a;
         margin-top: 12px;
+        align-items: center;
       }
 
       .nav-menu.open {
@@ -572,25 +574,25 @@
       .nav-menu li a {
         font-size: 1.2rem;
         padding: 8px 0;
+        white-space: normal;
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-menu li a i {
+        width: 24px;
+        text-align: center;
       }
 
       .nav-menu .contato-btn,
       .nav-menu .whatsapp-nav {
         width: fit-content;
         margin: 0 auto;
-      }
-
-      .hero-slider {
-        height: 250px;
-      }
-
-      .audio-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .social-links a {
-        padding: 12px 20px;
-        font-size: 0.95rem;
+        justify-content: center;
       }
     }
 
@@ -691,7 +693,7 @@
         <!-- NOVO SPOT ADICIONADO -->
         <div class="audio-card">
           <span class="tag">Spot</span>
-          <span class="audio-name">Mensagem</span>
+          <span class="audio-name">Mensagem Comemorativa – Santa Quitéria 166 Anos</span>
           <audio controls preload="metadata" class="audio-player" src="Mensagem.mp3.mpeg"></audio>
         </div>
       </div>
@@ -705,4 +707,177 @@
         <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Joelma Tomezão Club</span><audio controls preload="metadata" class="audio-player" src="01 - Chamada - JOELMA TRAIRI.mp3"></audio></div>
         <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Aldair All Black</span><audio controls preload="metadata" class="audio-player" src="Chamada - Aldair All Black (Bela Cruz ).mp3"></audio></div>
         <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Aquecimento Festa Das Flores</span><audio controls preload="metadata" class="audio-player" src="Chamada - Aquecimento FF - Itapipoca.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Festa A Fantasia</span><audio controls preload="metadata" class="audio-player" src="Chamada - FESTA A FAN
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Festa A Fantasia</span><audio controls preload="metadata" class="audio-player" src="Chamada - FESTA A FANTASIA.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Festa Das das Flores</span><audio controls preload="metadata" class="audio-player" src="Chamada - Festa Das das Flores 01.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Festival da Cerveja</span><audio controls preload="metadata" class="audio-player" src="CHAMADA - FESTIVAL DA CERVEJA MUNDAÚ.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Geraldo Monteiro</span><audio controls preload="metadata" class="audio-player" src="Chamada - Geraldo Monteiro 2019 (REDES).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Halloween</span><audio controls preload="metadata" class="audio-player" src="Chamada - HALLOWEEN.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Live Band Festival</span><audio controls preload="metadata" class="audio-player" src="Chamada - LIVE BAND FESTIVAL (AMONTADA).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Mastruz Com Leite</span><audio controls preload="metadata" class="audio-player" src="Chamada - MASTRUZ CALUGI.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - O Rei e o Mestre</span><audio controls preload="metadata" class="audio-player" src="Chamada - O REI E O MESTRE.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Pra Cima Taty Girl</span><audio controls preload="metadata" class="audio-player" src="Chamada - PRA CIMA TATY GIRL 01.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Semana Santa na Ilha</span><audio controls preload="metadata" class="audio-player" src="Chamada - SEMANA SANTA NA ILHA.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Só Das Antigas</span><audio controls preload="metadata" class="audio-player" src="Chamada - SÓ DAS ANTIGAS (Amontada).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Bar do Vicente Nery</span><audio controls preload="metadata" class="audio-player" src="Chamada 01 - BAR DO VICENTE NERY (FIVE ITAPIPOCA).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Tertúlia Dos Anos 80</span><audio controls preload="metadata" class="audio-player" src="III TERTULIA DOS ANOS 80.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Movimento Hip Hop</span><audio controls preload="metadata" class="audio-player" src="Spot - MOVIMENTO HIP HOP.mp3"></audio></div>
+      </div>
+      <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('chamadasGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
+    </section>
+
+    <!-- ===== CHAMADAS PARA EVENTOS RELIGIOSOS ===== -->
+    <section class="audio-section" id="religiosos">
+      <h2><i class="fas fa-hands-praying"></i> Chamadas para Eventos Religiosos</h2>
+      <div class="audio-grid hidden-items" id="religiososGrid">
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Rildo Freitas 20 Anos</span><audio controls preload="metadata" class="audio-player" src="01 - Chamada - RILDO FREITAS 20 ANOS (SOBRAL) (1).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - 70 Anos Igreja Presbiteriana</span><audio controls preload="metadata" class="audio-player" src="Chamada - 70 ANOS PRESBITERIANA ((VERSÃO 001)).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada Rádio - Arraiá da Paz (Shalom)</span><audio controls preload="metadata" class="audio-player" src="Chamada Rádio - Arraiá da Paz (Shalom).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Dia do Evangelico</span><audio controls preload="metadata" class="audio-player" src="Chamada - Dia do Evangelico 2022.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Evangelizar é Preciso</span><audio controls preload="metadata" class="audio-player" src="Chamada - Evangelizar é Preciso.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Despertai Jovem</span><audio controls preload="metadata" class="audio-player" src="Despertai Jovem.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Felipão Testemunho</span><audio controls preload="metadata" class="audio-player" src="Spot - Felipão Testemunho.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Festa Divida Misericórdia</span><audio controls preload="metadata" class="audio-player" src="Spot - FESTA DIVINA MISERICORDIA 2020.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Live Shalom</span><audio controls preload="metadata" class="audio-player" src="Spot - LIVE SHALOM.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Festa São Sebastião</span><audio controls preload="metadata" class="audio-player" src="Spot - São Sebastião - É NESTE DOMINGO (ABERTURA).mp3"></audio></div>
+      </div>
+      <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('religiososGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
+    </section>
+
+    <!-- ===== VINHETAS ===== -->
+    <section class="audio-section" id="vinhetas">
+      <h2><i class="fas fa-music"></i> Vinhetas</h2>
+      <div class="audio-grid hidden-items" id="vinhetasGrid">
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Web Rádio Mundaú</span><audio controls preload="metadata" class="audio-player" src="02 - Rádio Web Mundaú - Prod. 01.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH – Somos Rádio Bom Demais</span><audio controls preload="metadata" class="audio-player" src="02.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH – Esperança FM</span><audio controls preload="metadata" class="audio-player" src="03 - Esperança FM 001.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH – Horário Eleitoral</span><audio controls preload="metadata" class="audio-player" src="Abertura - One Cast - Impulsione (1).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Programa Espaço Mulher</span><audio controls preload="metadata" class="audio-player" src="Chamada - PROGRAMA ESPAÇO MULHER.mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH – Hora Certa – Mix Matheus</span><audio controls preload="metadata" class="audio-player" src="MIX MATEUS (1).mp3"></audio></div>
+        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Galícia (Banda de Forró)</span><audio controls preload="metadata" class="audio-player" src="VH - Galícia (Prod) (1).mp3"></audio></div>
+        <!-- NOVAS VINHETAS ADICIONADAS -->
+        <div class="audio-card">
+          <span class="tag">Vinheta</span>
+          <span class="audio-name">VH - Programa Prefeitura</span>
+          <audio controls preload="metadata" class="audio-player" src="vinheta-amontada-ativa.mp3"></audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Vinheta</span>
+          <span class="audio-name">VH - Programa Prefeitura</span>
+          <audio controls preload="metadata" class="audio-player" src="chamada-amontada-ativa.mp3"></audio>
+        </div>
+      </div>
+      <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('vinhetasGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
+    </section>
+
+    <!-- SOBRE -->
+    <div class="about-section">
+      <h2><i class="fas fa-circle-info"></i> Pro Studio Áudio – Soluções em Áudio Há 25 Anos</h2>
+      <ul class="services-list">
+        <li><i class="fas fa-microphone"></i> Gravação de spots publicitários.</li>
+        <li><i class="fas fa-headphones"></i> Produção de vinhetas para rádios, empresas, DJs, podcasts e redes sociais.</li>
+        <li><i class="fas fa-calendar-check"></i> Chamadas para shows, festas e eventos, desenvolvidas para atrair a atenção do público e valorizar sua divulgação.</li>
+        <li><i class="fas fa-sliders-h"></i> Edição, tratamento e finalização de áudio, garantindo um som limpo, moderno e com qualidade profissional.</li>
+      </ul>
+      <p style="margin-top: 16px; text-align: justify;">
+        <strong style="color: #f0b38c;">Pro Studio Áudio – Soluções em Áudio Há 25 Anos.</strong><br>
+        Entre em contato e descubra como podemos transformar sua ideia em uma produção de áudio profissional.
+      </p>
+    </div>
+
+    <!-- CONTATOS / REDES SOCIAIS -->
+    <section class="contato-section" id="contato">
+      <h2><i class="fas fa-address-card"></i> Conecte-se conosco</h2>
+      <div class="social-links">
+        <a href="https://www.instagram.com/prostudioaudio/" target="_blank" class="instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100054448511598&locale=pt_BR" target="_blank" class="facebook">
+          <i class="fab fa-facebook"></i> Facebook
+        </a>
+        <a href="https://soundcloud.com/prostudioaudio" target="_blank" class="soundcloud">
+          <i class="fab fa-soundcloud"></i> SoundCloud
+        </a>
+        <a href="https://wa.me/5588999559412?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20spots,%20vinhetas%20e%20chamadas." target="_blank" class="whatsapp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+      <div class="contato-email">
+        <i class="fas fa-envelope"></i> prostudioaudio10@gmail.com
+      </div>
+      <div class="contato-email" style="margin-top: 8px;">
+        <i class="fas fa-phone"></i> 88 99955-9412
+      </div>
+    </section>
+  </main>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/5588999559412?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20spots,%20vinhetas%20e%20chamadas." 
+     class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <footer class="container">
+    <div>© 2026 ProStudio Áudio · Soluções em Áudio</div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/prostudioaudio/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100054448511598&locale=pt_BR" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://soundcloud.com/prostudioaudio" target="_blank"><i class="fab fa-soundcloud"></i></a>
+      <a href="mailto:prostudioaudio10@gmail.com"><i class="fas fa-envelope"></i></a>
+      <span style="margin-left: 12px; color: #e34f2b;"><i class="fas fa-phone"></i> 88 99955-9412</span>
+    </div>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    toggleBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      const icon = toggleBtn.querySelector('i');
+      if (navMenu.classList.contains('open')) {
+        icon.className = 'fas fa-times';
+      } else {
+        icon.className = 'fas fa-bars';
+      }
+    });
+
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 820) {
+          navMenu.classList.remove('open');
+          toggleBtn.querySelector('i').className = 'fas fa-bars';
+        }
+      });
+    });
+
+    document.querySelectorAll('.nav-menu a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        if (window.innerWidth <= 820) {
+          navMenu.classList.remove('open');
+          toggleBtn.querySelector('i').className = 'fas fa-bars';
+        }
+      });
+    });
+
+    function toggleGrid(gridId) {
+      const grid = document.getElementById(gridId);
+      const btn = grid.parentElement.querySelector('.show-more-btn');
+      if (grid.classList.contains('hidden-items')) {
+        grid.classList.remove('hidden-items');
+        grid.classList.add('show-all');
+        btn.innerHTML = 'Mostrar menos <i class="fas fa-chevron-up"></i>';
+      } else {
+        grid.classList.add('hidden-items');
+        grid.classList.remove('show-all');
+        btn.innerHTML = 'Mostrar mais <i class="fas fa-chevron-down"></i>';
+        grid.parentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  </script>
+</body>
+</html>
