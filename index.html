@@ -563,6 +563,21 @@
       color: #fff;
     }
 
+    /* Mensagem de erro para áudio */
+    .audio-error {
+      color: #ff6b6b;
+      font-size: 0.85rem;
+      background: #2a1a1a;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border-left: 3px solid #ff6b6b;
+      display: none;
+    }
+
+    .audio-error.visible {
+      display: block;
+    }
+
     @media (max-width: 820px) {
       .nav-toggle {
         display: block;
@@ -694,20 +709,106 @@
     <section class="audio-section" id="spots">
       <h2><i class="fas fa-bullhorn"></i> Spot Comercial</h2>
       <div class="audio-grid hidden-items" id="spotsGrid">
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Santa Quitéria 166 Anos (Narração Nordestina)</span><audio controls class="audio-player" src="Santa Quiteria 166 Anos (Narração Nordestina) (1).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Alfa Baby</span><audio controls class="audio-player" src="Spot - Alfa Baby - Regravação.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot – Arena Pizza na Pedra</span><audio controls class="audio-player" src="Spot - ARENA PIZZA.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot – BotiPromo</span><audio controls class="audio-player" src="Spot - BotiPromo 01.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot – Brisa Net</span><audio controls class="audio-player" src="Spot - BRISA NET 01.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Casa do Celular (Black Friday)</span><audio controls class="audio-player" src="Spot - Casa do Celular (Black Friday).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Clinica Centro Imagem</span><audio controls class="audio-player" src="Spot - Clinica Centro Imagem.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Faculdade Anhanguera</span><audio controls class="audio-player" src="Spot - Faculdade Anhanguera.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - LB Veiculos</span><audio controls class="audio-player" src="Spot - LB Veiculos.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - O Boticário</span><audio controls class="audio-player" src="Spot - O Boticario Ciclo 8 --- 02.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot – Óticas Carol</span><audio controls class="audio-player" src="Spot - OTICAS CAROL FÉRIAS 01.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Parque dos Pirineus</span><audio controls class="audio-player" src="Spot - Parque dos Pirineus.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Unimed Carnaval</span><audio controls class="audio-player" src="Spot - Unimed Carnaval 001.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot Unimed - Dia da Água - ACARAÚ</span><audio controls class="audio-player" src="Spot Unimed - Dia da Água - ACARAÚ (1).mp3"></audio></div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Santa Quitéria 166 Anos (Narração Nordestina)</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Santa Quiteria 166 Anos (Narração Nordestina) (1).mp3" type="audio/mpeg">
+            Seu navegador não suporta áudio.
+          </audio>
+          <div class="audio-error">⚠️ Áudio não encontrado. Verifique se o arquivo está no repositório.</div>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot - Alfa Baby</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - Alfa Baby - Regravação.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot – Arena Pizza na Pedra</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - ARENA PIZZA.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot – BotiPromo</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - BotiPromo 01.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot – Brisa Net</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - BRISA NET 01.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot - Casa do Celular (Black Friday)</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - Casa do Celular (Black Friday).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot - Clinica Centro Imagem</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - Clinica Centro Imagem.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot - Faculdade Anhanguera</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - Faculdade Anhanguera.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot - LB Veiculos</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - LB Veiculos.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot - O Boticário</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - O Boticario Ciclo 8 --- 02.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot – Óticas Carol</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - OTICAS CAROL FÉRIAS 01.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot - Parque dos Pirineus</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - Parque dos Pirineus.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot - Unimed Carnaval</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - Unimed Carnaval 001.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Spot</span>
+          <span class="audio-name">Spot Unimed - Dia da Água - ACARAÚ</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot Unimed - Dia da Água - ACARAÚ (1).mp3" type="audio/mpeg">
+          </audio>
+        </div>
       </div>
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('spotsGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
     </section>
@@ -716,23 +817,125 @@
     <section class="audio-section" id="chamadas">
       <h2><i class="fas fa-play-circle"></i> Chamadas de Shows e Eventos</h2>
       <div class="audio-grid hidden-items" id="chamadasGrid">
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Joelma Tomezão Club</span><audio controls class="audio-player" src="01 - Chamada - JOELMA TRAIRI.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Aldair All Black</span><audio controls class="audio-player" src="Chamada - Aldair All Black (Bela Cruz ).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Aquecimento Festa Das Flores</span><audio controls class="audio-player" src="Chamada - Aquecimento FF - Itapipoca.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Festa A Fantasia</span><audio controls class="audio-player" src="Chamada - FESTA A FANTASIA.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Festa Das das Flores</span><audio controls class="audio-player" src="Chamada - Festa Das das Flores 01.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Festival da Cerveja</span><audio controls class="audio-player" src="CHAMADA - FESTIVAL DA CERVEJA MUNDAÚ.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Geraldo Monteiro</span><audio controls class="audio-player" src="Chamada - Geraldo Monteiro 2019 (REDES).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - Halloween</span><audio controls class="audio-player" src="Chamada - HALLOWEEN.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Live Band Festival</span><audio controls class="audio-player" src="Chamada - LIVE BAND FESTIVAL (AMONTADA).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Mastruz Com Leite</span><audio controls class="audio-player" src="Chamada - MASTRUZ CALUGI.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada - O Rei e o Mestre</span><audio controls class="audio-player" src="Chamada - O REI E O MESTRE.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Pra Cima Taty Girl</span><audio controls class="audio-player" src="Chamada - PRA CIMA TATY GIRL 01.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Semana Santa na Ilha</span><audio controls class="audio-player" src="Chamada - SEMANA SANTA NA ILHA.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Só Das Antigas</span><audio controls class="audio-player" src="Chamada - SÓ DAS ANTIGAS (Amontada).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Bar do Vicente Nery</span><audio controls class="audio-player" src="Chamada 01 - BAR DO VICENTE NERY (FIVE ITAPIPOCA).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Tertúlia Dos Anos 80</span><audio controls class="audio-player" src="III TERTULIA DOS ANOS 80.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Chamada</span><span class="audio-name">Chamada – Movimento Hip Hop</span><audio controls class="audio-player" src="Spot - MOVIMENTO HIP HOP.mp3"></audio></div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada – Joelma Tomezão Club</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="01 - Chamada - JOELMA TRAIRI.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada - Aldair All Black</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - Aldair All Black (Bela Cruz ).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada - Aquecimento Festa Das Flores</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - Aquecimento FF - Itapipoca.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada - Festa A Fantasia</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - FESTA A FANTASIA.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada - Festa Das das Flores</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - Festa Das das Flores 01.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada - Festival da Cerveja</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="CHAMADA - FESTIVAL DA CERVEJA MUNDAÚ.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada - Geraldo Monteiro</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - Geraldo Monteiro 2019 (REDES).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada - Halloween</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - HALLOWEEN.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada – Live Band Festival</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - LIVE BAND FESTIVAL (AMONTADA).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada – Mastruz Com Leite</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - MASTRUZ CALUGI.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada - O Rei e o Mestre</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - O REI E O MESTRE.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada – Pra Cima Taty Girl</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - PRA CIMA TATY GIRL 01.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada – Semana Santa na Ilha</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - SEMANA SANTA NA ILHA.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada – Só Das Antigas</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - SÓ DAS ANTIGAS (Amontada).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada – Bar do Vicente Nery</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada 01 - BAR DO VICENTE NERY (FIVE ITAPIPOCA).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada – Tertúlia Dos Anos 80</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="III TERTULIA DOS ANOS 80.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Chamada</span>
+          <span class="audio-name">Chamada – Movimento Hip Hop</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - MOVIMENTO HIP HOP.mp3" type="audio/mpeg">
+          </audio>
+        </div>
       </div>
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('chamadasGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
     </section>
@@ -741,16 +944,76 @@
     <section class="audio-section" id="religiosos">
       <h2><i class="fas fa-hands-praying"></i> Chamadas para Eventos Religiosos</h2>
       <div class="audio-grid hidden-items" id="religiososGrid">
-        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Rildo Freitas 20 Anos</span><audio controls class="audio-player" src="01 - Chamada - RILDO FREITAS 20 ANOS (SOBRAL) (1).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - 70 Anos Igreja Presbiteriana</span><audio controls class="audio-player" src="Chamada - 70 ANOS PRESBITERIANA ((VERSÃO 001)).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada Rádio - Arraiá da Paz (Shalom)</span><audio controls class="audio-player" src="Chamada Rádio - Arraiá da Paz (Shalom).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Dia do Evangelico</span><audio controls class="audio-player" src="Chamada - Dia do Evangelico 2022.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Evangelizar é Preciso</span><audio controls class="audio-player" src="Chamada - Evangelizar é Preciso.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Despertai Jovem</span><audio controls class="audio-player" src="Despertai Jovem.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Felipão Testemunho</span><audio controls class="audio-player" src="Spot - Felipão Testemunho.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Festa Divida Misericórdia</span><audio controls class="audio-player" src="Spot - FESTA DIVINA MISERICORDIA 2020.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Live Shalom</span><audio controls class="audio-player" src="Spot - LIVE SHALOM.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Festa São Sebastião</span><audio controls class="audio-player" src="Spot - São Sebastião - É NESTE DOMINGO (ABERTURA).mp3"></audio></div>
+        <div class="audio-card">
+          <span class="tag">Religioso</span>
+          <span class="audio-name">Chamada - Rildo Freitas 20 Anos</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="01 - Chamada - RILDO FREITAS 20 ANOS (SOBRAL) (1).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Religioso</span>
+          <span class="audio-name">Chamada - 70 Anos Igreja Presbiteriana</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - 70 ANOS PRESBITERIANA ((VERSÃO 001)).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Religioso</span>
+          <span class="audio-name">Chamada Rádio - Arraiá da Paz (Shalom)</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada Rádio - Arraiá da Paz (Shalom).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Religioso</span>
+          <span class="audio-name">Chamada - Dia do Evangelico</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - Dia do Evangelico 2022.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Religioso</span>
+          <span class="audio-name">Chamada - Evangelizar é Preciso</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - Evangelizar é Preciso.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Religioso</span>
+          <span class="audio-name">Chamada - Despertai Jovem</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Despertai Jovem.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Religioso</span>
+          <span class="audio-name">Chamada - Felipão Testemunho</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - Felipão Testemunho.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Religioso</span>
+          <span class="audio-name">Chamada - Festa Divida Misericórdia</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - FESTA DIVINA MISERICORDIA 2020.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Religioso</span>
+          <span class="audio-name">Chamada - Live Shalom</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - LIVE SHALOM.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Religioso</span>
+          <span class="audio-name">Chamada - Festa São Sebastião</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Spot - São Sebastião - É NESTE DOMINGO (ABERTURA).mp3" type="audio/mpeg">
+          </audio>
+        </div>
       </div>
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('religiososGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
     </section>
@@ -759,15 +1022,69 @@
     <section class="audio-section" id="vinhetas">
       <h2><i class="fas fa-music"></i> Vinhetas</h2>
       <div class="audio-grid hidden-items" id="vinhetasGrid">
-        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Web Rádio Mundaú</span><audio controls class="audio-player" src="02 - Rádio Web Mundaú - Prod. 01.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH – Somos Rádio Bom Demais</span><audio controls class="audio-player" src="02.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH – Esperança FM</span><audio controls class="audio-player" src="03 - Esperança FM 001.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH – Horário Eleitoral</span><audio controls class="audio-player" src="Abertura - One Cast - Impulsione (1).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Programa Espaço Mulher</span><audio controls class="audio-player" src="Chamada - PROGRAMA ESPAÇO MULHER.mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH – Hora Certa – Mix Matheus</span><audio controls class="audio-player" src="MIX MATEUS (1).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Galícia (Banda de Forró)</span><audio controls class="audio-player" src="VH - Galícia (Prod) (1).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Programa Prefeitura</span><audio controls class="audio-player" src="VH 03 - Programa Amontada Ativa (1).mp3"></audio></div>
-        <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Programa Prefeitura</span><audio controls class="audio-player" src="VH 05 - Programa Amontada Ativa (1).mp3"></audio></div>
+        <div class="audio-card">
+          <span class="tag">Vinheta</span>
+          <span class="audio-name">VH - Web Rádio Mundaú</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="02 - Rádio Web Mundaú - Prod. 01.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Vinheta</span>
+          <span class="audio-name">VH – Somos Rádio Bom Demais</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="02.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Vinheta</span>
+          <span class="audio-name">VH – Esperança FM</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="03 - Esperança FM 001.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Vinheta</span>
+          <span class="audio-name">VH – Horário Eleitoral</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Abertura - One Cast - Impulsione (1).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Vinheta</span>
+          <span class="audio-name">VH - Programa Espaço Mulher</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="Chamada - PROGRAMA ESPAÇO MULHER.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Vinheta</span>
+          <span class="audio-name">VH – Hora Certa – Mix Matheus</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="MIX MATEUS (1).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Vinheta</span>
+          <span class="audio-name">VH - Galícia (Banda de Forró)</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="VH - Galícia (Prod) (1).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Vinheta</span>
+          <span class="audio-name">VH - Programa Prefeitura</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="VH 03 - Programa Amontada Ativa (1).mp3" type="audio/mpeg">
+          </audio>
+        </div>
+        <div class="audio-card">
+          <span class="tag">Vinheta</span>
+          <span class="audio-name">VH - Programa Prefeitura</span>
+          <audio controls class="audio-player" preload="metadata">
+            <source src="VH 05 - Programa Amontada Ativa (1).mp3" type="audio/mpeg">
+          </audio>
+        </div>
       </div>
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('vinhetasGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
     </section>
@@ -887,6 +1204,22 @@
         grid.parentElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
+
+    // Verifica se os áudios carregaram e exibe erro se não
+    document.querySelectorAll('.audio-player').forEach(player => {
+      const errorDiv = player.parentElement.querySelector('.audio-error');
+      if (!errorDiv) return;
+
+      player.addEventListener('error', function(e) {
+        errorDiv.classList.add('visible');
+        console.warn('Erro ao carregar áudio:', this.src);
+      });
+
+      // Tenta recarregar se falhar
+      player.addEventListener('loadeddata', function() {
+        errorDiv.classList.remove('visible');
+      });
+    });
   </script>
 </body>
 </html>
