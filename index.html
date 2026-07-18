@@ -211,6 +211,10 @@
       overflow: hidden;
       transition: transform 0.3s ease;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      background: #121822;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .banner-whatsapp:hover {
@@ -228,6 +232,8 @@
       height: auto;
       display: block;
       border-radius: 24px;
+      object-fit: contain;
+      max-height: 100%;
     }
 
     .audio-section {
@@ -594,6 +600,25 @@
         margin: 0 auto;
         justify-content: center;
       }
+
+      .hero-slider {
+        height: 250px;
+      }
+
+      .audio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .social-links a {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+      }
+
+      .banner-whatsapp img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
     }
 
     @media (max-width: 500px) {
@@ -625,6 +650,18 @@
 
       .destaque-titulo {
         font-size: 1.5rem;
+      }
+
+      .banner-whatsapp {
+        margin: 20px 0 30px;
+        border-radius: 16px;
+      }
+
+      .banner-whatsapp img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 16px;
       }
     }
   </style>
@@ -727,7 +764,7 @@
 
     <!-- ===== CHAMADAS PARA EVENTOS RELIGIOSOS ===== -->
     <section class="audio-section" id="religiosos">
-      <h2><i class="fas fa-hands-praying"></i> Chamadas para Eventos Religiosos</h2>
+      <h2><i class="fas fa-hands-praying"></i> Chamadas Religiosas</h2>
       <div class="audio-grid hidden-items" id="religiososGrid">
         <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - Rildo Freitas 20 Anos</span><audio controls preload="metadata" class="audio-player" src="01 - Chamada - RILDO FREITAS 20 ANOS (SOBRAL) (1).mp3"></audio></div>
         <div class="audio-card"><span class="tag">Religioso</span><span class="audio-name">Chamada - 70 Anos Igreja Presbiteriana</span><audio controls preload="metadata" class="audio-player" src="Chamada - 70 ANOS PRESBITERIANA ((VERSÃO 001)).mp3"></audio></div>
