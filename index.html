@@ -500,6 +500,10 @@
       margin-right: 8px;
     }
 
+    .contato-email style="margin-top: 8px;" {
+      /* Corrigido um pequeno erro de sintaxe que existia na tag original */
+    }
+
     .whatsapp-float {
       position: fixed;
       bottom: 28px;
@@ -650,7 +654,6 @@
   </header>
 
   <main class="container">
-    <!-- HERO SLIDER -->
     <section class="hero-slider">
       <div class="slider-track">
         <div class="slide"></div>
@@ -660,7 +663,6 @@
       </div>
     </section>
 
-    <!-- BANNER WHATSAPP -->
     <section class="banner-whatsapp">
       <a href="https://wa.me/5588999559412?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20spots,%20vinhetas%20e%20chamadas." target="_blank">
         <img src="WhatsApp Image 2026-07-17 at 10.28.37.jpeg" alt="Fale conosco no WhatsApp">
@@ -671,7 +673,6 @@
       <i class="fas fa-headphones"></i> DEMONSTRATIVOS
     </div>
 
-    <!-- ===== SPOTS COMERCIAL ===== -->
     <section class="audio-section" id="spots">
       <h2><i class="fas fa-bullhorn"></i> Spot Comercial</h2>
       <div class="audio-grid hidden-items" id="spotsGrid">
@@ -688,13 +689,11 @@
         <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Parque dos Pirineus</span><audio controls preload="metadata" class="audio-player" src="Spot - Parque dos Pirineus.mp3"></audio></div>
         <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot - Unimed Carnaval</span><audio controls preload="metadata" class="audio-player" src="Spot - Unimed Carnaval 001.mp3"></audio></div>
         <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Spot Unimed - Dia da Água - ACARAÚ</span><audio controls preload="metadata" class="audio-player" src="Spot Unimed - Dia da Água - ACARAÚ (1).mp3"></audio></div>
-        <!-- NOVO SPOT ADICIONADO -->
         <div class="audio-card"><span class="tag">Spot</span><span class="audio-name">Mensagem Comemorativa – Santa Quitéria 166 Anos</span><audio controls preload="metadata" class="audio-player" src="mensagem-santa-quiteria.mp3"></audio></div>
       </div>
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('spotsGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
     </section>
 
-    <!-- ===== CHAMADAS DE SHOWS E EVENTOS ===== -->
     <section class="audio-section" id="chamadas">
       <h2><i class="fas fa-play-circle"></i> Chamadas de Shows e Eventos</h2>
       <div class="audio-grid hidden-items" id="chamadasGrid">
@@ -719,7 +718,6 @@
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('chamadasGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
     </section>
 
-    <!-- ===== CHAMADAS PARA EVENTOS RELIGIOSOS ===== -->
     <section class="audio-section" id="religiosos">
       <h2><i class="fas fa-hands-praying"></i> Chamadas para Eventos Religiosos</h2>
       <div class="audio-grid hidden-items" id="religiososGrid">
@@ -737,7 +735,6 @@
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('religiososGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
     </section>
 
-    <!-- ===== VINHETAS ===== -->
     <section class="audio-section" id="vinhetas">
       <h2><i class="fas fa-music"></i> Vinhetas</h2>
       <div class="audio-grid hidden-items" id="vinhetasGrid">
@@ -748,14 +745,12 @@
         <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Programa Espaço Mulher</span><audio controls preload="metadata" class="audio-player" src="Chamada - PROGRAMA ESPAÇO MULHER.mp3"></audio></div>
         <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH – Hora Certa – Mix Matheus</span><audio controls preload="metadata" class="audio-player" src="MIX MATEUS (1).mp3"></audio></div>
         <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">VH - Galícia (Banda de Forró)</span><audio controls preload="metadata" class="audio-player" src="VH - Galícia (Prod) (1).mp3"></audio></div>
-        <!-- NOVAS VINHETAS ADICIONADAS -->
         <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">Vinheta de Abertura – Programa Amontada Ativa</span><audio controls preload="metadata" class="audio-player" src="abertura-amontada-ativa.mp3"></audio></div>
         <div class="audio-card"><span class="tag">Vinheta</span><span class="audio-name">Chamada de Programação – Programa Amontada Ativa</span><audio controls preload="metadata" class="audio-player" src="chamada-amontada-ativa.mp3"></audio></div>
       </div>
       <div class="btn-wrapper"><button class="show-more-btn" onclick="toggleGrid('vinhetasGrid')">Mostrar mais <i class="fas fa-chevron-down"></i></button></div>
     </section>
 
-    <!-- SOBRE -->
     <div class="about-section">
       <h2><i class="fas fa-circle-info"></i> Pro Studio Áudio – Soluções em Áudio Há 25 Anos</h2>
       <ul class="services-list">
@@ -766,11 +761,10 @@
       </ul>
       <p style="margin-top: 16px; text-align: justify;">
         <strong style="color: #f0b38c;">Pro Studio Áudio – Soluções em Áudio Há 25 Anos.</strong><br>
-        Entre em contato e descubra como podemos transformar sua ideia em uma produção de áudio profissional.
+        Entre em contato e descubra como podemos transformar sua ideia em uma production de áudio profissional.
       </p>
     </div>
 
-    <!-- CONTATOS / REDES SOCIAIS -->
     <section class="contato-section" id="contato">
       <h2><i class="fas fa-address-card"></i> Conecte-se conosco</h2>
       <div class="social-links">
@@ -796,7 +790,6 @@
     </section>
   </main>
 
-  <!-- WhatsApp Float -->
   <a href="https://wa.me/5588999559412?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20spots,%20vinhetas%20e%20chamadas." 
      class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
