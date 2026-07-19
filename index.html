@@ -151,20 +151,25 @@
       background: #1a1f29;
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
       position: relative;
-      height: 400px;
+      width: 100%;
+      padding-top: 40%;
     }
 
     .slider-track {
       display: flex;
       width: 100%;
       height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
       animation: slideAnimation 20s infinite alternate ease-in-out;
     }
 
     .slide {
       flex: 0 0 100%;
       height: 100%;
-      background-size: cover;
+      background-size: contain;
+      background-repeat: no-repeat;
       background-position: center;
       background-color: #202633;
       display: flex;
@@ -186,23 +191,27 @@
 
     .slider-track .slide:nth-child(1) {
       background-image: url('WhatsApp Image 2026-07-11 at 22.27.11.jpeg');
-      background-size: cover;
+      background-size: contain;
       background-position: center;
+      background-repeat: no-repeat;
     }
     .slider-track .slide:nth-child(2) {
-      background-image: url('WhatsApp Image 2026-07-17 at 21.04.24.jpeg');
-      background-size: cover;
+      background-image: url('WhatsApp Image 2026-07-18 at 21.09.45.jpeg');
+      background-size: contain;
       background-position: center;
+      background-repeat: no-repeat;
     }
     .slider-track .slide:nth-child(3) {
       background-image: url('WhatsApp Image 2026-07-11 at 22.27.11.jpeg');
-      background-size: cover;
+      background-size: contain;
       background-position: center;
+      background-repeat: no-repeat;
     }
     .slider-track .slide:nth-child(4) {
-      background-image: url('WhatsApp Image 2026-07-17 at 21.04.24.jpeg');
-      background-size: cover;
+      background-image: url('WhatsApp Image 2026-07-18 at 21.09.45.jpeg');
+      background-size: contain;
       background-position: center;
+      background-repeat: no-repeat;
     }
 
     .banner-whatsapp {
@@ -602,7 +611,7 @@
       }
 
       .hero-slider {
-        height: 250px;
+        padding-top: 55%;
       }
 
       .audio-grid {
@@ -627,7 +636,7 @@
       }
 
       .hero-slider {
-        height: 200px;
+        padding-top: 70%;
       }
 
       .about-section {
